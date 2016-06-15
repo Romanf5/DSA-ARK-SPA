@@ -3,33 +3,24 @@ angular.module('dsaArkTheme')
 
 
 // Homepage controller
-.controller('HomeCtrl', ['$scope', 'homeService', function($scope, homeService) {
+.controller('HomeCtrl', ['$scope', 'homeService', '$http', function($scope, homeService, $http) {
     $scope.page_title = 'Home';
 
 
     // Retrieve category data
     homeService.getCategories().query(function(response) {
         $scope.categories = response;
-
         for (var i = 0; i < $scope.categories.length; i++) {
-            // Retrieve category images from ACF
-            //console.log($scope.categories[i].id);
-            homeService.getCatImage().get({
-                id: $scope.categories[i].id
-            }, function(response) {
-                $scope.catImg = response.acf;
-                $scope.categories[i] = $scope.categories.concat($scope.catImg);
-            }, function(response) {
-                $scope.message = "Error: " + response.status + " " + response.statusText;
-            });
+            $http.get(appInfo.api_acf_url + "term/categories/" + $scope.categories[i].id).success((function(i) {
+                return function(data) {
+                    $scope.categories[i].category_image = data.acf.category_image;
+                };
+            })(i));
         }
-
-        console.log($scope.categories);
-
+        $scope.cats = $scope.categories;
     }, function(response) {
         $scope.message = "Error: " + response.status + " " + response.statusText;
     });
-
 }])
 
 

@@ -61,4 +61,53 @@ function slug_get_siglings( $object, $field_name, $request ) {
 	);
 }
 
+// add_action( 'rest_api_init', 'register_category_image' );
+// function register_category_image() {
+// 	register_api_field( 'category',
+// 		'category_image',
+// 		array(
+// 			'get_callback' => 'category_image_field'
+// 		)
+// 	);
+// }
+
+// function category_image_field( $object, $field_name, $request ) {
+
+// 	return get_field('category_image', 'category_3');
+// }
+
+	// $terms = get_terms( array(
+ //   'taxonomy' => 'category',
+ //   //'hide_empty' => false,
+	// ) );
+	// echo '<pre>';
+	// var_dump(  );
+	// echo '</pre>';
+	
+	
+// add_action( 'rest_api_init', 'slug_register_acf' );
+// function slug_register_acf() {
+//   $terms = get_terms( array(
+//     'taxonomy' => 'category',
+// 	));
+
+//     register_api_field( 'category',
+//         'category_image',
+//         array(
+//             'get_callback'    => 'slug_get_acf',
+//             'update_callback' => null,
+//             'schema'          => null,
+//         )
+//     );
+  
+// }
+// function slug_get_acf( $object, $field_name, $request ) {
+// 	//var_dump($object);
+//     return get_field('category_image');
+// }
+
+
+
+
+	
 ?>

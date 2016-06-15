@@ -108,7 +108,7 @@ angular.module('dsaArkTheme')
 })
 
 // Service for retriving categories for the main page.
-.service('homeService', function($resource) {
+.service('homeService', ['$resource', '$http', function($resource, $http) {
 
 
     this.getCategories = function() {
@@ -118,10 +118,12 @@ angular.module('dsaArkTheme')
     };
 
 
-    this.getCatImage = function(ID) {
-        return $resource(appInfo.api_acf_url + "term/categories/:id");
-    };
+    // this.getCatImage = function() {
+    //     return $resource(appInfo.api_acf_url + "term/categories/:id");
+    // };
 
+    // this.getCatImage = function() {
+    //     return $http(appInfo.api_acf_url + "term/categories/");
+    // };
 
-
-});
+}]);
