@@ -1,0 +1,15 @@
+<h1>{{page_title}}</h1>
+<div class="row">
+	<a ui-sref="home" class="button">Back</a>
+</div>
+<div class="row" ng-repeat="rows in chunkedData">
+	<div ng-repeat="post in rows">
+		<article class="medium-4 columns">
+			<h2><a ui-sref="single-post({id: post.id})">{{post.title.rendered}}</a></h2>
+			<a ui-sref="single-post({id: post.id})">{{ post.categories }}</a>
+			<div ng-bind-html="post.excerpt.rendered | to_trusted"></div>
+			<a class="button" ui-sref="single-post({id: post.id})">Read more</a>
+		</article>
+	</div>
+</div>
+</div>

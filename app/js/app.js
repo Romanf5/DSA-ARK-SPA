@@ -11,14 +11,14 @@ angular.module( 'dsaArkTheme', ['ui.router', 'ngResource'] )
 			controller: 'HomeCtrl',
 			templateUrl: appInfo.template_directory + 'app/views/home.html'
 		})
-		.state( 'detail', {
+		.state( 'blog', {
 			url: '/posts?:categories',
-			controller: 'DetailCtrl',
-			templateUrl: appInfo.template_directory + 'app/views/detail.html'
+			controller: 'BlogCtrl',
+			templateUrl: appInfo.template_directory + 'app/views/blog.html'
 		})
 		.state( 'single-post', {
 			url: '/posts/:id',
-			controller: 'PostCtrl',
+			controller: 'SinglePostCtrl',
 			templateUrl: appInfo.template_directory + 'app/views/single-post.html'
 		});
 });

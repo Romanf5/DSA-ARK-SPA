@@ -101,7 +101,7 @@ angular.module('dsaArkTheme')
     });
 })
 
-.factory('Posts', function($resource) {
+.factory('Post', function($resource) {
     return $resource(appInfo.api_url + 'posts/:ID', {
         ID: '@id'
     });
@@ -122,8 +122,8 @@ angular.module('dsaArkTheme')
     //     return $resource(appInfo.api_acf_url + "term/categories/:id");
     // };
 
-    // this.getCatImage = function() {
-    //     return $http(appInfo.api_acf_url + "term/categories/");
-    // };
+    this.getCatImage = function(id) {
+        return $http(appInfo.api_acf_url + "term/categories/" + id );
+    };
 
 }]);
