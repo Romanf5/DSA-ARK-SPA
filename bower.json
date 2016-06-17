@@ -1,0 +1,23 @@
+{
+  "name": "dsa-ark",
+  "homepage": "https://github.com/Romanf5/DSA-ARK-SPA",
+  "authors": [
+    "Roman Berezhnoi <berezhnoi.f5@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-resource": "1.4.6",
+    "angular": "1.4.6",
+    "angular-ui-router": "ui-router#^0.3.1",
+    "angular-foundation": "^0.8.0",
+    "foundation": "5.5.2"
+  }
+}

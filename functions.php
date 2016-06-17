@@ -4,17 +4,28 @@ class dsa_ark_theme {
 	
 	function enqueue_scripts() {
 		
-	
-		wp_enqueue_style( 'foundation.css', 'https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css', array(), '6.2.3', 'all' );
-		wp_enqueue_script( 'foundation.js', 'https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js', array( 'jquery' ), '1.5.6', false );
-		wp_enqueue_script( 'foundation.offcanvas.js', 'https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/plugins/foundation.offcanvas.js', array( 'jquery', 'foundation.js' ), '1.5.6', false );
-		wp_enqueue_script( 'angular', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js', array( 'jquery' ), '1.5.6', false );
-		wp_enqueue_script( 'angular-resource', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-resource.min.js', array('angular'), '1.5.6', false );
-		wp_enqueue_script( 'ui-router', 'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js', array( 'angular' ), '0.3.1', false );
+		// Foundation CSS framework
+		wp_enqueue_style( 'foundation.css', get_template_directory_uri() . '/bower_components/foundation/css/foundation.min.css', array(), '5.5.2', 'all' );
+		// wp_enqueue_script( 'foundation.js', get_template_directory_uri() . '/bower_components/foundation/js/foundation.min.js', array( 'jquery' ), '5.5.2', false );
+		// wp_enqueue_script( 'foundation.offcanvas.js', get_template_directory_uri() . '/bower_components/foundation/js/foundation/foundation.offcanvas.js', array( 'jquery', 'foundation.js' ), '5.5.2', false );
+		
+		// Site custom styles
+		wp_enqueue_style( 'main.css', get_template_directory_uri() . '/app/css/main.css', array('foundation.css'), '1.0.0', 'all' );
+		
+		// AngularJS
+		wp_enqueue_script( 'angular', get_template_directory_uri() . '/bower_components/angular/angular.min.js', array( 'jquery' ), '1.4.6', false );
+		wp_enqueue_script( 'angular-resource', get_template_directory_uri() . '/bower_components/angular-resource/angular-resource.min.js', array('angular'), '1.4.6', false );
+		wp_enqueue_script( 'ui-router', get_template_directory_uri() . '/bower_components/angular-ui-router/release/angular-ui-router.min.js', array( 'angular' ), '0.3.1', false );
+		
+		// Angular-Foundation
+		wp_enqueue_script( 'angular-foundation', get_template_directory_uri() . '/bower_components/angular-foundation/mm-foundation-tpls.min.js', array( 'angular' ), '0.3.1', false );
+		
+		// App
 		wp_enqueue_script( 'ngApp', get_template_directory_uri() . '/app/js/app.js', array( 'ui-router' ), '1.0', false );
 		wp_enqueue_script( 'ngControllers', get_template_directory_uri() . '/app/js/controllers.js', array( 'ngApp' ), '1.0', false );
 		wp_enqueue_script( 'ngServices', get_template_directory_uri() . '/app/js/services.js', array( 'ngControllers' ), '1.0', false );
 		wp_enqueue_script( 'ngFilters', get_template_directory_uri() . '/app/js/filters.js', array( 'ngServices' ), '1.0', false );
+		wp_enqueue_script( 'ngDirectives', get_template_directory_uri() . '/app/js/directives.js', array( 'ngFilters' ), '1.0', false );
 		wp_localize_script( 'ngApp', 'appInfo',
 			array(
 				
@@ -34,7 +45,18 @@ class dsa_ark_theme {
 $dsaArk = new dsa_ark_theme();
 add_action( 'wp_enqueue_scripts', array( $dsaArk, 'enqueue_scripts' ) );
 
+add_theme_support('post-thumbnails');
+set_post_thumbnail_size( 400, 200, true );
 
+function dsa_ark_theme_setup() {
+	if ( function_exists( 'add_theme_support' ) ) { 
+	    add_theme_support( 'post-thumbnails' );
+	    set_post_thumbnail_size( 400, 200, true );
+	    add_image_size( 'category-thumb', 300, 9999 );
+	}
+}
+
+add_action( 'after_setup_theme', 'dsa_ark_theme_setup' );
 
 // next/previous post
 

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module( 'dsaArkTheme', ['ui.router', 'ngResource'] )
+angular.module( 'dsaArkTheme', ['ui.router', 'ngResource', 'mm.foundation'] )
 
 
 .config( function( $stateProvider, $urlRouterProvider){
@@ -20,5 +20,10 @@ angular.module( 'dsaArkTheme', ['ui.router', 'ngResource'] )
 			url: '/posts/:id',
 			controller: 'SinglePostCtrl',
 			templateUrl: appInfo.template_directory + 'app/views/single-post.html'
+		})
+		.state('category', {
+			url: '/categories/:category',
+			controller: 'BlogCtrl',
+			templateUrl: appInfo.template_directory + 'app/views/blog.html'
 		});
 });

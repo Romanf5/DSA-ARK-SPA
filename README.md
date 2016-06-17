@@ -1,3 +1,2 @@
-# DSA-ARK-SPA
+# DSA-ARK Single Page Application
 WP + AngularJS
-# DSA-ARK-SPA

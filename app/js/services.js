@@ -122,8 +122,8 @@ angular.module('dsaArkTheme')
     //     return $resource(appInfo.api_acf_url + "term/categories/:id");
     // };
 
-    this.getCatImage = function(id) {
-        return $http(appInfo.api_acf_url + "term/categories/" + id );
-    };
+    // this.getCatImage = function(id) {
+    //     return $http(appInfo.api_acf_url + "term/categories/" + id );
+    // };
 
 }]);
