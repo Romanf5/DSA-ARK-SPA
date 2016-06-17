@@ -130,6 +130,27 @@ function slug_get_siglings( $object, $field_name, $request ) {
 
 
 
+function rest_prepare_thumbnail( $data, $post, $request ) {
+	$_data = $data->data;
+	$thumbnail_id = get_post_thumbnail_id( $post->ID );
+	$thumbnail = wp_get_attachment_image_src( $thumbnail_id );
+	$_data['featured_image_thumbnail_url'] = $thumbnail[0];
+	$data->data = $_data;
+	return $data;
+}
+add_filter( 'rest_prepare_post', 'rest_prepare_thumbnail', 10, 3 );
+
+function rest_prepare_cat( $data, $post, $request ) {
+	$_data = $data->data;
+	$cat = get_the_category();
+	//$thumbnail = wp_get_attachment_image_src( $thumbnail_id );
+	$_data['cat_url'] = $cat;
+	$data->data = $_data;
+	//var_dump($cat);
+	return $data;
+
+}
+add_filter( 'rest_prepare_post', 'rest_prepare_cat', 10, 3 );
 
 	
 ?>

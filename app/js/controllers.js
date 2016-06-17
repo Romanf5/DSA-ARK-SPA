@@ -1,23 +1,9 @@
 'use strict';
 angular.module('dsaArkTheme')
 
-.controller('OffCanvasCtrl', function ($scope) {
+.controller('OffCanvasCtrl', function($scope) {
 
 })
-
-.controller('TabsDemoCtrl', function ($scope) {
-  $scope.tabs = [
-    { title:"Dynamic Title 1", content:"Dynamic content 1" },
-    { title:"Dynamic Title 2", content:"Dynamic content 2" }
-  ];
-
-  $scope.alertMe = function() {
-    setTimeout(function() {
-      alert("You've selected the alert tab!");
-    });
-  };
-})
-
 
 // Homepage controller
 .controller('HomeCtrl', ['$scope', 'homeService', '$http', function($scope, homeService, $http) {
@@ -59,35 +45,51 @@ angular.module('dsaArkTheme')
 
 // Blog controller
 .controller('BlogCtrl', ['$scope', '$stateParams', 'PostsByCat', '$http', function($scope, $stateParams, PostsByCat, $http) {
-    
-    $scope.page_title = 'Blog';
-    
-    $http.get( appInfo.api_url + 'categories').success(function(res){
-		$scope.categories = res;
-		console.log($stateParams.category);
-	});
 
-// 	$http.get( appInfo.api_url + 'posts' ).success(function(res){
-// 		$scope.posts = res;
-// 		$scope.pageTitle = 'Latest Posts:';
-// 		document.querySelector('title').innerHTML = 'Home | AngularJS Demo Theme';
-// 	});
-	
-	
-	console.log($stateParams);
-	
-	PostsByCat.query({
+    $scope.page_title = 'Blog';
+
+    $http.get(appInfo.api_url + 'categories').success(function(res) {
+        $scope.categories = res;
+    });
+
+    // 	$http.get( appInfo.api_url + 'posts' ).success(function(res){
+    // 		$scope.posts = res;
+    // 		$scope.pageTitle = 'Latest Posts:';
+    // 		document.querySelector('title').innerHTML = 'Home | AngularJS Demo Theme';
+    // 	});
+
+
+    //console.log($stateParams);
+
+    PostsByCat.query({
         ID: $stateParams.category
     }, function(res) {
         $scope.posts = res;
-        console.log(res);
+        //console.log(angular.toJson(res));
+
+        // for (var i in $scope.posts) {
+            
+        //         var arr = [];
+        //         $http.get(appInfo.api_url + 'categories/' + res[i].categories).success((function(i, arr) {
+        //             return function(res) {
+        //                 $scope.postCatLinks = res;
+        //                 //return $scope.postCatLinks;
+        //                 console.log($scope.postCatLinks.name);
+        //                 console.log($scope.posts[i]);
+        //             };
+        //         })(i, arr));
+                
+            
+        //     //console.log('Iteration #' + i );
+        // }
+
         $scope.chunkedData = chunk($scope.posts, 3);
     });
-    
-    
+
+
     $scope.selected = 0;
-    $scope.select= function(index) {
-       $scope.selected = index; 
+    $scope.select = function(index) {
+        $scope.selected = index;
     };
 
     // Fix responsive grid
@@ -103,8 +105,10 @@ angular.module('dsaArkTheme')
 
 // Single Post controller
 .controller('SinglePostCtrl', ['$scope', 'Post', '$stateParams', function($scope, Posts, $stateParams) {
-	console.log($stateParams);
-	Posts.get( { ID: $stateParams.id}, function(res){
-		$scope.post = res;
-	});
+    console.log($stateParams);
+    Posts.get({
+        ID: $stateParams.id
+    }, function(res) {
+        $scope.post = res;
+    });
 }]);

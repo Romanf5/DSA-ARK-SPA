@@ -9,14 +9,12 @@
 	<!--	</li>-->
 	<!--</ul>-->
 	<tabset>
-		<tab  ng-repeat="category in categories" heading="{{category.name | to_trusted}}" ui-sref=".list({category: category.id})" ui-sref-active="active">
+		<tab  ng-repeat="category in categories" heading="{{category.name | to_trusted}}" ui-sref="category.list({category: category.id})" ui-sref-active="active">
 			<!--<p>{{category.description}}</p>-->
 		</tab>
 	</tabset>
 </div>
 
-	
-	<!--<a ui-sref=".list" class="button round">List</a>-->
     
     <div ui-view></div>
 
