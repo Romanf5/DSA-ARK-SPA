@@ -5,9 +5,9 @@
             <div class="img-wrapper">
                 <img src="{{ category.category_image }}" />
             </div>
-            <h2><a ui-sref="category({category: category.id})">{{category.name}}</a></h2>
+            <h2><a ui-sref="category.list({category: category.id})">{{category.name}}</a></h2>
             <div ng-bind-html="post.description | to_trusted"></div>
-            <a class="button" ui-sref="category({category: category.id})">Click here to read more</a>
+            <a class="button" ui-sref="category.list({category: category.id})">Click here to read more</a>
         </article>
     </div>
 </div>

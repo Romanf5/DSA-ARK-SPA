@@ -1,8 +1,8 @@
-/*.active {*/
-/*    font-size: 18px;*/
-/*    font-weight: 700;*/
-/*    color: red !important;*/
-/*}*/
+.active {
+    font-size: 18px;
+    font-weight: 700;
+    color: red !important;
+}
 
 .img-wrapper {
   width: 220px;
