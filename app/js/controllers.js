@@ -52,37 +52,11 @@ angular.module('dsaArkTheme')
         $scope.categories = res;
     });
 
-    // 	$http.get( appInfo.api_url + 'posts' ).success(function(res){
-    // 		$scope.posts = res;
-    // 		$scope.pageTitle = 'Latest Posts:';
-    // 		document.querySelector('title').innerHTML = 'Home | AngularJS Demo Theme';
-    // 	});
-
-
-    //console.log($stateParams);
 
     PostsByCat.query({
         ID: $stateParams.category
     }, function(res) {
         $scope.posts = res;
-        //console.log(angular.toJson(res));
-
-        // for (var i in $scope.posts) {
-            
-        //         var arr = [];
-        //         $http.get(appInfo.api_url + 'categories/' + res[i].categories).success((function(i, arr) {
-        //             return function(res) {
-        //                 $scope.postCatLinks = res;
-        //                 //return $scope.postCatLinks;
-        //                 console.log($scope.postCatLinks.name);
-        //                 console.log($scope.posts[i]);
-        //             };
-        //         })(i, arr));
-                
-            
-        //     //console.log('Iteration #' + i );
-        // }
-
         $scope.chunkedData = chunk($scope.posts, 3);
     });
 
