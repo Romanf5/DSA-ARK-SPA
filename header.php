@@ -11,6 +11,8 @@
   </title>
   <?php wp_head();?>
   <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />
+  <script src="https://use.typekit.net/qxj3hxt.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
 </head>
 
 

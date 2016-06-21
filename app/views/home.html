@@ -5,9 +5,15 @@
             <div class="img-wrapper">
                 <img src="{{ category.category_image }}" />
             </div>
-            <h2><a ui-sref="category.list({category: category.id})">{{category.name}}</a></h2>
             <div ng-bind-html="post.description | to_trusted"></div>
-            <a class="button" ui-sref="category.list({category: category.id})">Click here to read more</a>
+            <div class="cat-label" ui-sref="category.list({category: category.id})">{{category.name}}</div>
         </article>
     </div>
+    <article class="medium-4 columns" ng-if="$last">
+        <div class="img-wrapper">
+            <img src="http://placehold.it/350x150">
+        </div>
+        <div ng-bind-html="post.description | to_trusted"></div>
+        <div class="cat-label" ui-sref="category.list({category: category.id})">DKA-ARK</div>
+    </article>
 </div>

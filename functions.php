@@ -4,13 +4,8 @@ class dsa_ark_theme {
 	
 	function enqueue_scripts() {
 		
-		// Foundation CSS framework
-		wp_enqueue_style( 'foundation.css', get_template_directory_uri() . '/bower_components/foundation/css/foundation.min.css', array(), '5.5.2', 'all' );
-		// wp_enqueue_script( 'foundation.js', get_template_directory_uri() . '/bower_components/foundation/js/foundation.min.js', array( 'jquery' ), '5.5.2', false );
-		// wp_enqueue_script( 'foundation.offcanvas.js', get_template_directory_uri() . '/bower_components/foundation/js/foundation/foundation.offcanvas.js', array( 'jquery', 'foundation.js' ), '5.5.2', false );
-		
-		// Site custom styles
-		wp_enqueue_style( 'main.css', get_template_directory_uri() . '/app/css/main.css', array('foundation.css'), '1.0.0', 'all' );
+		// Site custom styles / Foundation CSS framework
+		wp_enqueue_style( 'main.css', get_template_directory_uri() . '/app/css/main.css', '1.0.0', 'all' );
 		
 		// AngularJS
 		wp_enqueue_script( 'angular', get_template_directory_uri() . '/bower_components/angular/angular.min.js', array( 'jquery' ), '1.4.6', false );
