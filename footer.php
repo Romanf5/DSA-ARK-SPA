@@ -1,10 +1,5 @@
-					</div><!-- END CONTAINER -->
-				</section>
-			<a class="exit-off-canvas"></a>
-		</div>
-	</div>
 </div>
-
+<!-- END CONTAINER -->
 <footer>
 	<div class="container">
 		<div class="row">
@@ -18,6 +13,13 @@
 	</div>
 </footer>
 <?php wp_footer(); ?>
+</section>
+<a class="exit-off-canvas"></a>
+</div>
+</div>
+</div>
+
+
 
 </body>
 
