@@ -16,12 +16,6 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('./app/css'));
 });
 
-// gulp.task('foundation-sass', function() {
-//     return gulp.src('./scss/*.scss')
-//         .pipe(sass())
-//         .pipe(gulp.dest('./css'));
-// });
-
 gulp.task('LiveReload', function() {
     gulp.src('./app/**/*')
         .pipe(connect.reload());
@@ -29,8 +23,7 @@ gulp.task('LiveReload', function() {
 
 gulp.task('watch', function() {
     gulp.watch('./app/scss/**/*.scss', ['sass']);
-    // gulp.watch('./scss/*.scss', ['foundation-sass']);
     gulp.watch(['./app/**/*'], ['LiveReload']);
 });
 
-gulp.task('default', ['connect', 'watch', 'sass', /*'foundation-sass'*/]);
+gulp.task('default', ['connect', 'watch', 'sass']);

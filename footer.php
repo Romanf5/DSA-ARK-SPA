@@ -1,23 +1,46 @@
 </div>
-<!-- END CONTAINER -->
-<footer>
-	<div class="container">
-		<div class="row">
-			<div class="medium-12 columns text-center">
-				<p>
-					&copy;
-					<?php echo Date('Y'); ?>
-				</p>
-			</div>
-		</div>
-	</div>
-</footer>
-<?php wp_footer(); ?>
-</section>
-<a class="exit-off-canvas"></a>
+          <!-- Footer -->
+          <footer class="footer">
+            <div class="row full-width">
+              <div class="small-6 medium-3 large-2 columns">
+                <h4>Follow Me</h4>
+                <ul class="footer-links">
+                  <li><a href="#">GitHub</a></li>
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">Twitter</a></li>
+                  <li><a href="#">Instagram</a></li>
+                  <li><a href="#">Dribbble</a></li>
+                  <ul>
+              </div>
+              <div class="small-6 medium-3 large-2 columns">
+                <h4>Work With Me</h4>
+                <ul class="footer-links">
+                  <li><a href="#">What I Do</a></li>
+                  <li><a href="#">Pricing</a></li>
+                  <li><a href="#">Events</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">FAQ's</a></li>
+                  <ul>
+              </div>
+              <div class="small-12 medium-3 large-4 columns">
+              </div>
+              <div class="small-12 medium-3 large-4 columns">
+                <i class="fi-html5"></i>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit impedit consequuntur at! Amet sed itaque nostrum, distinctio eveniet odio, id ipsam fuga quam minima cumque nobis veniam voluptates deserunt!</p>
+              </div>
+            </div>
+          </footer>
+          
+          
+          
+          <?php wp_footer(); ?>
+        </section>
+      <a class="exit-off-canvas"></a>
+    </div>
+  </div>
 </div>
-</div>
-</div>
+
+
 
 
 

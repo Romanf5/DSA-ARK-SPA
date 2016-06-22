@@ -1,6 +1,10 @@
 'use strict';
-angular.module('dsaArkTheme', ['ui.router', 'ngResource', 'mm.foundation'])
+angular.module('dsaArkTheme', ['ui.router', 'ngResource', 'mm.foundation', 'angular-loading-bar'])
 
+.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+	cfpLoadingBarProvider.parentSelector = '#loading-bar-container';
+	cfpLoadingBarProvider.spinnerTemplate = '<div><img src="' + appInfo.template_directory + 'app/img/dsa-animation-active-waiting.gif" /></div>';
+}])
 
 .config(function($stateProvider, $urlRouterProvider) {
 			$urlRouterProvider.otherwise('/');

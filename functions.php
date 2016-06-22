@@ -15,6 +15,10 @@ class dsa_ark_theme {
 		// Angular-Foundation
 		wp_enqueue_script( 'angular-foundation', get_template_directory_uri() . '/bower_components/angular-foundation/mm-foundation-tpls.min.js', array( 'angular' ), '0.3.1', false );
 		
+		// Angular Loading Bar
+		wp_enqueue_script( 'angular-loading-bar', get_template_directory_uri() . '/bower_components/angular-loading-bar/build/loading-bar.min.js', array( 'angular' ), '0.9.0', false );
+		wp_enqueue_style( 'angular-loading-bar.css', get_template_directory_uri() . '/bower_components/angular-loading-bar/build/loading-bar.min.css', '0.9.0', 'all' );
+		
 		// App
 		wp_enqueue_script( 'ngApp', get_template_directory_uri() . '/app/js/app.js', array( 'ui-router' ), '1.0', false );
 		wp_enqueue_script( 'ngControllers', get_template_directory_uri() . '/app/js/controllers.js', array( 'ngApp' ), '1.0', false );
@@ -25,7 +29,7 @@ class dsa_ark_theme {
 			array(
 				
 				'api_url'			 => rest_get_url_prefix() . '/wp/v2/',
-				'api_acf_url'			 => rest_get_url_prefix() . '/acf/v2/',
+				'api_acf_url'		 => rest_get_url_prefix() . '/acf/v2/',
 				'template_directory' => get_template_directory_uri() . '/',
 				'nonce'				 => wp_create_nonce( 'wp_rest' ),
 				'is_admin'			 => current_user_can('administrator')
