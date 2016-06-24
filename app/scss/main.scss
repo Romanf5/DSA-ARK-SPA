@@ -4,7 +4,6 @@
 @import "partials/header.scss";
 
 .active {
-    font-size: 18px;
     font-weight: 700;
     color: red !important;
 }
@@ -16,31 +15,33 @@
   position: relative;
 }
 
-// .img-wrapper img {
-//   position: absolute;
-//   left: 50%;
-//   top: 50%;
-//   height: 100%;
-//   width: auto;
-//   -webkit-transform: translate(-50%,-50%);
-//       -ms-transform: translate(-50%,-50%);
-//           transform: translate(-50%,-50%);
-// }
-
-
 h1 {
   font-size: $h1-font-size;
   font-weight: $h1-font-weight;
   color: $h1-font-color;
 }
 
+h5 {
+  font-size: 27px;
+  color: #FFFFFF;
+  font-weight: 700;
+  line-height: 35px;
+}
+
 .cat-label {
   position: relative;
   height: 40px;
   width: 80%;
-  background-color: #F66F6D;
+  //background-color: #F66F6D;
   padding: 15px 30px;
   bottom: 70px;
+  opacity: 0.8;
+  h5 {
+    position: relative;
+    bottom: 35px;
+    color: #fff;
+    opacity: 1;
+  }
 }
 
 footer {
@@ -64,12 +65,11 @@ $text-color: #fff;
 // footer CSS
 
 .footer {
-  background-color: #2980b9;
   padding: 2rem 4rem;
   text-align: center;
   color: $text-color;
   i {
-    font-size: 100px;
+    font-size: 50px;
   }
 }
 
@@ -81,18 +81,19 @@ $text-color: #fff;
     text-transform: uppercase;
     margin-top: 2.5rem;
     margin-bottom: 10px;
+    font-weight: 70px;
   }
   p, a {
     font-weight: 300; 
     font-size: .8em;
     color: $text-color;
+    margin-bottom: 0px;
   }
 }
 
 @media only screen and (min-width: 40.063em) {
 .footer {
   .columns:nth-child(n+2) {
-    border-left: 1px solid scale-color($text-color, $lightness: -30%);
     min-height: 280px;
   }
  }
@@ -105,19 +106,57 @@ $text-color: #fff;
   }
 }
 
-#loading-bar-container div {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  top: 0;
-  opacity: 0.4;
-  z-index: 2;
-  & img {
-    position: absolute;
-    top: 20%;
-    left: 0;
-    right: 0;
-    margin: auto;
+
+
+
+.fade {
+  transition: 1s linear all;
+  -webkit-transition: 1s linear all;
+}
+
+.fade.ng-enter,
+.ng-enter .fade {
+  opacity: 0;
+}
+
+.fade.ng-enter.ng-enter-active,
+.ng-enter.ng-enter-active .fade {
+  opacity: 1;
+}
+
+.fade.ng-leave,
+.ng-leave .fade{
+  opacity: 1;
+}
+
+.fade.ng-leave.ng-leave-active,
+.ng-leave.ng-leave-active .fade {
+  opacity: 0;
+}
+
+
+// top menu
+// .right-small {
+//   right: 80px;
+// } 
+
+.bar {
+    width: 25%;
+    height: 10px;
+    margin-top: 10px;
+    background-color: #F6CD64;
+}
+
+.tabs {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+  .tabs-title {
+    display: inline-block;
+    margin: 0 15px;
+    a {
+      display: block;
+      text-align: center;
+    }
   }
 }

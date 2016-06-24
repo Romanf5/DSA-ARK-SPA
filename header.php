@@ -23,17 +23,18 @@
     <div class="off-canvas-wrap" data-offcanvas>
       <div class="inner-wrap">
         <nav class="tab-bar">
-          <div class="container">
-            <div class="row">
+
           <section class="left tab-bar-section">
             <img src="<?php echo get_template_directory_uri() ?>/app/img/icons/logo.svg" alt="" class="logo">
+            <div class="bar"></div>
+            <p>Arkitektløsninger til fredede bygninger,<br>
+            boliger og erhverv</p>
           </section>
 
           <section class="right-small">
-            <a class="right-off-canvas-toggle menu-icon door-icon" href="#"><span></span></a>
+            <a class="right-off-canvas-toggle menu-icon door-icon" href=""><span></span></a>
           </section>
-          </div>
-          </div>
+
         </nav>
 
         <aside class="right-off-canvas-menu">
@@ -51,5 +52,5 @@
           
 
 
-          <div class="container">
-            <div class="row">
+          <!--<div class="container">-->
+          <!--  <div class="row">-->

@@ -6,7 +6,7 @@ angular.module('dsaArkTheme')
 })
 
 // Homepage controller
-.controller('HomeCtrl', ['$scope', 'homeService', '$http', function($scope, homeService, $http) {
+.controller('HomeCtrl', ['$rootScope', '$scope', 'homeService', '$http', '$element', function($rootScope, $scope, homeService, $http, $element) {
     $scope.page_title = 'Home';
 
 
@@ -14,17 +14,18 @@ angular.module('dsaArkTheme')
     homeService.getCategories().query(function(response) {
         $scope.categories = response;
 
-        $scope.chunkedData = chunk($scope.categories, 3);
+        //$scope.chunkedData = chunk($scope.categories, 3);
 
         // Retrieve category image from ACF REST API
-        for (var i = 0; i < $scope.categories.length; i++) {
-            $http.get(appInfo.api_acf_url + "term/categories/" + $scope.categories[i].id).success((function(i) {
-                return function(data) {
-                    $scope.categories[i].category_image = data.acf.category_image; // ACF field: category_image
-                };
-            })(i));
-        }
-        $scope.cats = $scope.categories;
+        // for (var i = 0; i < $scope.categories.length; i++) {
+        //     $http.get(appInfo.api_acf_url + "term/categories/" + $scope.categories[i].id).success((function(i) {
+        //         return function(data) {
+        //             $scope.categories[i].category_image = data.acf.category_image; // ACF field: category_image
+        //             $scope.categories[i].category_color = data.acf.category_color;
+        //         };
+        //     })(i));
+        // }
+        //$scope.cats = $scope.categories;
     }, function(response) {
         $scope.message = "Error: " + response.status + " " + response.statusText;
     });
@@ -38,7 +39,15 @@ angular.module('dsaArkTheme')
         return newArr;
     }
 
-
+    // $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState) {
+    //       var forward = toState.name > fromState.name;
+    //       console.log($element);
+    //       if (forward) {
+    //         $element.removeClass('backward');
+    //       } else {
+    //         $element.addClass('backward');
+    //       }
+    // });
 
 }])
 

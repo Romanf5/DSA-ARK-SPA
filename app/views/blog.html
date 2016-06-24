@@ -3,16 +3,17 @@
 </div>
 
 <div class="medium-12 columns">
-	<!--<ul>-->
-	<!--	<li ng-repeat="category in categories" class="tabs-title" ui-sref-active="is-active">-->
-	<!--		<a ui-sref=".list({category: category.id})" aria-selected="ui-sref-active()" ng-bind-html="category.name | to_trusted"></a>-->
-	<!--	</li>-->
-	<!--</ul>-->
-	<tabset>
-		<tab  ng-repeat="category in categories" heading="{{category.name | to_trusted}}" ui-sref="category.list({category: category.id})" active="tab.active">
+	<ul class="tabs">
+		<li ng-repeat="category in categories" class="tabs-title fade" ui-sref-active="active">
+			<img class="cat_icon" src="{{ category.category_icon }}" alt="">
+			<a ui-sref=".list({category: category.id})" aria-selected="ui-sref-active()" ng-bind-html="category.name | to_trusted"></a>
+		</li>
+	</ul>
+	<!--<tabset>-->
+	<!--	<tab  ng-repeat="category in categories" heading="{{category.name | to_trusted}}>" ui-sref="category.list({category: category.id})" active="tab.active">-->
 			<!--<p>{{category.description}}</p>-->
-		</tab>
-	</tabset>
+	<!--	</tab>-->
+	<!--</tabset>-->
 </div>
 
     

@@ -8,8 +8,9 @@ class dsa_ark_theme {
 		wp_enqueue_style( 'main.css', get_template_directory_uri() . '/app/css/main.css', '1.0.0', 'all' );
 		
 		// AngularJS
-		wp_enqueue_script( 'angular', get_template_directory_uri() . '/bower_components/angular/angular.min.js', array( 'jquery' ), '1.4.6', false );
-		wp_enqueue_script( 'angular-resource', get_template_directory_uri() . '/bower_components/angular-resource/angular-resource.min.js', array('angular'), '1.4.6', false );
+		wp_enqueue_script( 'angular', get_template_directory_uri() . '/bower_components/angular/angular.min.js', array( 'jquery' ), '1.5.7', false );
+		wp_enqueue_script( 'angular-resource', get_template_directory_uri() . '/bower_components/angular-resource/angular-resource.min.js', array('angular'), '1.5.7', false );
+		wp_enqueue_script( 'angular-animate', get_template_directory_uri() . '/bower_components/angular-animate/angular-animate.min.js', array('angular'), '1.5.7', false );
 		wp_enqueue_script( 'ui-router', get_template_directory_uri() . '/bower_components/angular-ui-router/release/angular-ui-router.min.js', array( 'angular' ), '0.3.1', false );
 		
 		// Angular-Foundation
@@ -82,29 +83,88 @@ function slug_get_siglings( $object, $field_name, $request ) {
 	);
 }
 
-// add_action( 'rest_api_init', 'register_category_image' );
-// function register_category_image() {
-// 	register_api_field( 'category',
-// 		'category_image',
+
+// Category Thumbnail
+add_action( 'rest_api_init', 'register_category_image' );
+function register_category_image() {
+	register_api_field( 'category',
+		'category_image',
+		array(
+			'get_callback' => 'category_image_field'
+		)
+	);
+}
+
+function category_image_field( $object, $field_name, $request ) {
+	$thumbnail_id = get_field('category_image', 'category_' . $object['id'] );
+	$thumbnail = wp_get_attachment_image_src( $thumbnail_id );
+	return $thumbnail[0];
+}
+
+
+// Category Color
+add_action( 'rest_api_init', 'register_category_color' );
+function register_category_color() {
+	register_api_field( 'category',
+		'category_color',
+		array(
+			'get_callback' => 'category_color_field'
+		)
+	);
+}
+
+function category_color_field( $object, $field_name, $request ) {
+	return get_field('category_color', 'category_' . $object['id'] );
+}
+
+// Category Icon
+add_action( 'rest_api_init', 'register_category_icon' );
+function register_category_icon() {
+	register_api_field( 'category',
+		'category_icon',
+		array(
+			'get_callback' => 'category_icon_field'
+		)
+	);
+}
+
+function category_icon_field( $object, $field_name, $request ) {
+	return get_field('category_icon', 'category_' . $object['id'] );
+}
+
+
+// // Post cat colors
+// add_action( 'rest_api_init', 'register_post_cat_col' );
+// function register_post_cat_col() {
+// 	register_api_field( 'post',
+// 		'cat_url.cat_color',
 // 		array(
-// 			'get_callback' => 'category_image_field'
+// 			'get_callback' => 'post_cat_col_field'
 // 		)
 // 	);
 // }
 
-// function category_image_field( $object, $field_name, $request ) {
-
-// 	return get_field('category_image', 'category_3');
+// function post_cat_col_field( $data, $post, $request ) {
+	
+// 	//var_dump($data->data);
+// 	//$_data = $data->data;
+	
+	
+// 	return get_field('category_color', 'category_' . $data['id'] );
 // }
 
-	// $terms = get_terms( array(
- //   'taxonomy' => 'category',
- //   //'hide_empty' => false,
-	// ) );
-	// echo '<pre>';
-	// var_dump(  );
-	// echo '</pre>';
-	
+// function rest_prepare_cat( $data, $post, $request ) {
+// 	$_data = $data->data;
+// 	$cat = get_the_category();
+// 	$_data['cat_url'] = $cat;
+// 	$data->data = $_data;
+// 	return $data;
+// }
+
+
+
+
+
 	
 // add_action( 'rest_api_init', 'slug_register_acf' );
 // function slug_register_acf() {
@@ -128,7 +188,7 @@ function slug_get_siglings( $object, $field_name, $request ) {
 // }
 
 
-
+// Thumbnail
 function rest_prepare_thumbnail( $data, $post, $request ) {
 	$_data = $data->data;
 	$thumbnail_id = get_post_thumbnail_id( $post->ID );
@@ -139,17 +199,24 @@ function rest_prepare_thumbnail( $data, $post, $request ) {
 }
 add_filter( 'rest_prepare_post', 'rest_prepare_thumbnail', 10, 3 );
 
+
+// Category Data
 function rest_prepare_cat( $data, $post, $request ) {
 	$_data = $data->data;
 	$cat = get_the_category();
-	//$thumbnail = wp_get_attachment_image_src( $thumbnail_id );
 	$_data['cat_url'] = $cat;
+	$cat_color = get_field('category_icon', 'category_' . $cat['id'] );
+	var_dump($cat->ID);
 	$data->data = $_data;
-	//var_dump($cat);
 	return $data;
-
 }
 add_filter( 'rest_prepare_post', 'rest_prepare_cat', 10, 3 );
+
+// Excerpt length
+function new_excerpt_length($length) {
+	return 17;
+}
+add_filter('excerpt_length', 'new_excerpt_length');
 
 	
 ?>

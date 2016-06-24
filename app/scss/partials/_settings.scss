@@ -93,7 +93,7 @@ $font-family-sans-serif: "futura-pt", sans-serif;
 
 // We use these to define default font weights
 // $font-weight-normal: normal;
-// $font-weight-bold: bold;
+ $font-weight-bold: bold;
 
 // $white       : #FFFFFF;
 // $ghost       : #FAFAFA;
@@ -835,12 +835,12 @@ $font-family-sans-serif: "futura-pt", sans-serif;
 // Off Canvas Tab Bar Variables
 // $include-html-off-canvas-classes: $include-html-classes;
 
- $tabbar-bg: white;
- $tabbar-height: rem-calc(76);
+ $tabbar-bg: transparent;
+ $tabbar-height: rem-calc(160);
 // $tabbar-icon-width: $tabbar-height;
-// $tabbar-line-height: $tabbar-height;
-// $tabbar-color: $white;
-// $tabbar-middle-padding: 0 rem-calc(10);
+ $tabbar-line-height: 40px;
+ $tabbar-color: #000;
+ $tabbar-middle-padding: 0 rem-calc(120);
 
 // Off Canvas Divider Styles
  $tabbar-left-section-border: none;
@@ -854,17 +854,17 @@ $font-family-sans-serif: "futura-pt", sans-serif;
 // $tabbar-header-margin: 0;
 
 // Off Canvas Menu Variables
-// $off-canvas-width: rem-calc(250);
-// $off-canvas-bg: red;
-// $off-canvas-bg-hover: scale-color($tabbar-bg, $lightness: -30%);
+ $off-canvas-width: rem-calc(500);
+ $off-canvas-bg: #303030;
+ //$off-canvas-bg-hover: scale-color($tabbar-bg, $lightness: -30%);
 // $off-canvas-bg-active: scale-color($tabbar-bg, $lightness: -30%);
 
 // Off Canvas Menu List Variables
-// $off-canvas-label-padding: .3rem rem-calc(15);
-// $off-canvas-label-color: $aluminum;
-// $off-canvas-label-text-transform: uppercase;
-// $off-canvas-label-font-size: rem-calc(12);
-// $off-canvas-label-font-weight: $font-weight-bold;
+ $off-canvas-label-padding: .3rem rem-calc(15);
+ $off-canvas-label-color: white;
+ $off-canvas-label-text-transform: uppercase;
+ $off-canvas-label-font-size: rem-calc(24);
+ $off-canvas-label-font-weight: $font-weight-bold;
 // $off-canvas-label-bg: $tuatara;
 // $off-canvas-label-border-top: 1px solid scale-color($off-canvas-label-bg, $lightness: 14%);
 // $off-canvas-label-border-bottom: none;
