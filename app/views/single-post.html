@@ -1,10 +1,12 @@
-<div class="medium-12 columns">
-    <a class="button" back>Back</a>
-</div>
-<div class="medium-12 columns">
-    <h1>{{post.title.rendered}}</h1>
-    <div ng-bind-html="post.content.rendered | to_trusted"></div>
-</div>
+<div class="row">
+    <!--<div class="medium-12 columns">-->
+    <!--    <a class="button" back>Back</a>-->
+    <!--</div>-->
+    <div class="medium-12 columns">
+        <h1>{{post.title.rendered}}</h1>
+        <div ng-bind-html="post.content.rendered | to_trusted"></div>
+    </div>
 
-<a ui-sref="single-post({id: post.siblings.prev})" ng-show="post.siblings.prev != null" class="button">Previous post</a>
-<a ui-sref="single-post({id: post.siblings.next})" ng-show="post.siblings.next != null" class="button">Next post</a>
+    <a ui-sref="single-post({id: post.siblings.prev})" ng-show="post.siblings.prev != null" class="button">Previous post</a>
+    <a ui-sref="single-post({id: post.siblings.next})" ng-show="post.siblings.next != null" class="button">Next post</a>
+</div>

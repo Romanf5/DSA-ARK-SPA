@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base href="/">
   <title>
     <?php wp_title('&laquo;', true, 'right'); ?>
     <?php bloginfo('name'); ?>
@@ -26,7 +27,7 @@
 
           <section class="left tab-bar-section">
             <img src="<?php echo get_template_directory_uri() ?>/app/img/icons/logo.svg" alt="" class="logo">
-            <div class="bar"></div>
+            <div class="logo-bar"></div>
             <p>Arkitektløsninger til fredede bygninger,<br>
             boliger og erhverv</p>
           </section>
@@ -42,7 +43,7 @@
             <li><a href="#">Arkitect to Go</a></li>
             <li><a href="#">Om DSA</a></li>
             <li><a href="#">Samarbejestpartnere</a></li>
-            <li><a href="#">Kontakt</a></li>
+            <li><a ui-sref="contact">Kontakt</a></li>
           </ul>
         </aside>
 
@@ -52,5 +53,5 @@
           
 
 
-          <!--<div class="container">-->
+          <div class="container">
           <!--  <div class="row">-->

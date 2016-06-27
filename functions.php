@@ -51,8 +51,8 @@ set_post_thumbnail_size( 400, 200, true );
 function dsa_ark_theme_setup() {
 	if ( function_exists( 'add_theme_support' ) ) { 
 	    add_theme_support( 'post-thumbnails' );
-	    set_post_thumbnail_size( 400, 200, true );
-	    add_image_size( 'category-thumb', 300, 9999 );
+	    set_post_thumbnail_size( 800, 400, true );
+	    add_image_size( 'category-thumb', 800, 400, true );
 	}
 }
 
@@ -132,62 +132,6 @@ function category_icon_field( $object, $field_name, $request ) {
 	return get_field('category_icon', 'category_' . $object['id'] );
 }
 
-
-// // Post cat colors
-// add_action( 'rest_api_init', 'register_post_cat_col' );
-// function register_post_cat_col() {
-// 	register_api_field( 'post',
-// 		'cat_url.cat_color',
-// 		array(
-// 			'get_callback' => 'post_cat_col_field'
-// 		)
-// 	);
-// }
-
-// function post_cat_col_field( $data, $post, $request ) {
-	
-// 	//var_dump($data->data);
-// 	//$_data = $data->data;
-	
-	
-// 	return get_field('category_color', 'category_' . $data['id'] );
-// }
-
-// function rest_prepare_cat( $data, $post, $request ) {
-// 	$_data = $data->data;
-// 	$cat = get_the_category();
-// 	$_data['cat_url'] = $cat;
-// 	$data->data = $_data;
-// 	return $data;
-// }
-
-
-
-
-
-	
-// add_action( 'rest_api_init', 'slug_register_acf' );
-// function slug_register_acf() {
-//   $terms = get_terms( array(
-//     'taxonomy' => 'category',
-// 	));
-
-//     register_api_field( 'category',
-//         'category_image',
-//         array(
-//             'get_callback'    => 'slug_get_acf',
-//             'update_callback' => null,
-//             'schema'          => null,
-//         )
-//     );
-  
-// }
-// function slug_get_acf( $object, $field_name, $request ) {
-// 	//var_dump($object);
-//     return get_field('category_image');
-// }
-
-
 // Thumbnail
 function rest_prepare_thumbnail( $data, $post, $request ) {
 	$_data = $data->data;
@@ -204,9 +148,17 @@ add_filter( 'rest_prepare_post', 'rest_prepare_thumbnail', 10, 3 );
 function rest_prepare_cat( $data, $post, $request ) {
 	$_data = $data->data;
 	$cat = get_the_category();
-	$_data['cat_url'] = $cat;
-	$cat_color = get_field('category_icon', 'category_' . $cat['id'] );
-	var_dump($cat->ID);
+	$cat_arr = array();
+	foreach ( $cat as $c ) {
+		$cat_arr[] = array(
+			'category_id' => $c->term_id,
+			'category_name' => $c->name,
+			'category_color' => get_field('category_color', 'category_' . $c->term_id ),
+			'category_icon' => get_field('category_icon', 'category_' . $c->term_id ),
+			);
+	}
+	
+	$_data['cat_info'] = $cat_arr;
 	$data->data = $_data;
 	return $data;
 }
@@ -218,5 +170,48 @@ function new_excerpt_length($length) {
 }
 add_filter('excerpt_length', 'new_excerpt_length');
 
+
+// add_action("wpcf7_before_send_mail", "wpcf7_do_something_else");  
+// function wpcf7_do_something_else($cf7) {
+//     // get the contact form object
+//     $wpcf = WPCF7_ContactForm::get_current();
+
+//     // if you wanna check the ID of the Form $wpcf->id
+
+//     // if (/*Perform check here*/) {
+//     //     // If you want to skip mailing the data, you can do it...  
+//     //     $wpcf->skip_mail = true;    
+//     // }
+//     echo '<pre>';
+//     var_dump($wpcf);
+//     echo '</pre>';
+
+//     return $wpcf;
+// }	
+	
+// // define the wpcf7_contact_form callback 
+// function action_wpcf7_contact_form( $instance ) { 
+//     var_dump( $instance); 
+// }; 
+         
+// // add the action 
+// add_action( 'wpcf7_contact_form', 'action_wpcf7_contact_form', 10, 1 ); 
+
+
+// add_action('wpcf7_before_send_mail', 'my_wpcf7_choose_recipient');    
+// function my_wpcf7_choose_recipient($WPCF7_ContactForm)
+// {
+//     // use $submission to access POST data
+//     $submission = WPCF7_Submission::get_instance();
+//     $data = $submission->get_posted_data();
+//     $subject = $data['subject']
+
+//     // use WPCF7_ContactForm->prop() to access form settings
+//     $mail = $WPCF7_ContactForm->prop('mail');
+//     $recipient = $mail['recipient'];
+
+//     // update a form property
+//     $WPCF7_ContactForm->set_properties(array('mail' => $mail));
+// }
 	
 ?>

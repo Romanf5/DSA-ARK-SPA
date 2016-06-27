@@ -1,19 +1,11 @@
-<div class="medium-12 columns">
-	<a class="button" ui-sref="home">Back</a>
-</div>
 
 <div class="medium-12 columns">
 	<ul class="tabs">
-		<li ng-repeat="category in categories" class="tabs-title fade" ui-sref-active="active">
+		<li ng-repeat="category in categories" class="tabs-title fade">
 			<img class="cat_icon" src="{{ category.category_icon }}" alt="">
-			<a ui-sref=".list({category: category.id})" aria-selected="ui-sref-active()" ng-bind-html="category.name | to_trusted"></a>
+			<a ui-sref=".list({category: category.id})" ui-sref-active="active" ng-bind-html="category.name | to_trusted"></a>
 		</li>
 	</ul>
-	<!--<tabset>-->
-	<!--	<tab  ng-repeat="category in categories" heading="{{category.name | to_trusted}}>" ui-sref="category.list({category: category.id})" active="tab.active">-->
-			<!--<p>{{category.description}}</p>-->
-	<!--	</tab>-->
-	<!--</tabset>-->
 </div>
 
     

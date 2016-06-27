@@ -8,46 +8,42 @@ angular.module('dsaArkTheme', ['ui.router', 'ngResource', 'ngAnimate', 'mm.found
 	//cfpLoadingBarProvider.spinnerTemplate = '<div><img src="' + appInfo.template_directory + 'app/img/dsa-animation-active-waiting.gif" /></div>';
 }])
 
-.config(function($stateProvider, $urlRouterProvider) {
-			$urlRouterProvider.otherwise('/');
-			$stateProvider
-				.state('home', {
-					url: '/',
-					controller: 'HomeCtrl',
-					templateUrl: appInfo.template_directory + 'app/views/home.html'
-				})
-				.state('blog', {
-					url: '/posts?:categories',
-					controller: 'BlogCtrl',
-					templateUrl: appInfo.template_directory + 'app/views/blog.html'
-				})
-				.state('single-post', {
-					url: '/posts/:id',
-					controller: 'SinglePostCtrl',
-					templateUrl: appInfo.template_directory + 'app/views/single-post.html'
-				})
-				.state('category', {
-					url: '/categories',
-					controller: 'BlogCtrl',
-					templateUrl: appInfo.template_directory + 'app/views/blog.html'
-				})
-			    .state('category.list', {
-			        url: '/:category',
-			        controller: 'BlogCtrl',
-			        templateUrl: appInfo.template_directory + 'app/views/case-filter.html'
-			    });
-})
-
-
-  .constant('forwardAnim', {
-    'page.1': 'scrolled',
-    'page.2': 'scrolled',
-    'page.3': 'modal',
-  })
-  .constant('backwardAnim', {
-    'page.1': 'scrolled',
-    'page.2': 'modal',
-    'page.3': 'modal',
-  })
-
-;
+.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
+	$urlRouterProvider.otherwise('/');
+	$stateProvider
+		.state('home', {
+			url: '/',
+			controller: 'HomeCtrl',
+			templateUrl: appInfo.template_directory + 'app/views/home.html'
+		})
+		.state('blog', {
+			url: '/posts?:categories',
+			controller: 'BlogCtrl',
+			templateUrl: appInfo.template_directory + 'app/views/blog.html'
+		})
+		.state('single-post', {
+			url: '/posts/:id',
+			controller: 'SinglePostCtrl',
+			templateUrl: appInfo.template_directory + 'app/views/single-post.html'
+		})
+		.state('category', {
+			url: '/categories',
+			controller: 'BlogCtrl',
+			templateUrl: appInfo.template_directory + 'app/views/blog.html'
+		})
+		.state('category.list', {
+			url: '/:category',
+			controller: 'BlogCtrl',
+			templateUrl: appInfo.template_directory + 'app/views/case-filter.html'
+		})
+		.state('contact', {
+			url: '/contact',
+			controller: 'ContactCtrl',
+			templateUrl: appInfo.template_directory + 'app/views/contactus.html'
+		});
+		
+		
+		// use the HTML5 History API
+        $locationProvider.html5Mode(true);
+		
+});
