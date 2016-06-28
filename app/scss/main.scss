@@ -1,10 +1,11 @@
 @import "partials/settings.scss";
 @import "partials/foundation.scss";
+@import "partials/font-awesome.scss";
 @import "partials/variables.scss";
 @import "partials/header.scss";
 
 .full-width {
-  max-width: 1400px;
+  max-width: 100%;
 }
 
 // .active {
@@ -16,21 +17,23 @@
     width: 100%;
     position: relative;
     display: block;
-    img {
-      -webkit-filter: grayscale(100%);
-      -webkit-transition: .5s ease-in-out;
-      -moz-filter: grayscale(100%);
-      -moz-transition: .5s ease-in-out;
-      -o-filter: grayscale(100%);
-      -o-transition: .5s ease-in-out;
-      
-      &:hover {
-       -webkit-filter: grayscale(0%);
-      -webkit-transition: .5s ease-in-out;
-      -moz-filter: grayscale(0%); 
-      -moz-transition: .5s ease-in-out;
-      -o-filter: grayscale(0%); 
-      -o-transition: .5s ease-in-out;
+    &.cat-wrapper {
+      img {
+        -webkit-filter: grayscale(100%);
+        -webkit-transition: .5s ease-in-out;
+        -moz-filter: grayscale(100%);
+        -moz-transition: .5s ease-in-out;
+        -o-filter: grayscale(100%);
+        -o-transition: .5s ease-in-out;
+        
+        &:hover {
+         -webkit-filter: grayscale(0%);
+        -webkit-transition: .5s ease-in-out;
+        -moz-filter: grayscale(0%); 
+        -moz-transition: .5s ease-in-out;
+        -o-filter: grayscale(0%); 
+        -o-transition: .5s ease-in-out;
+        }
       }
     }
     .cat-label {
@@ -38,13 +41,13 @@
       height: 40px;
       width: 80%;
       padding: 15px 30px;
-      bottom: 17%;
+      bottom: 12%;
       opacity: 0.8;
     }
     h5 {
       position: absolute;
-      bottom: 22%;
-      left: 13%;
+      bottom: 15%;
+      left: 8%;
       color: #fff;
     }
 }
@@ -151,7 +154,7 @@ $text-color: #fff;
 @media only screen and (min-width: 40.063em) {
 .footer {
   .columns:nth-child(n+2) {
-    min-height: 360px;
+    min-height: 240px;
   }
  }
 }
@@ -226,6 +229,24 @@ $text-color: #fff;
   }
 }
 
+.single-post-wrapper { 
+  .tabs { 
+    text-align: initial; 
+    .tabs-title:first-child {
+      margin-left: 0;
+    }
+  }
+  .row { margin-bottom: 30px; }
+
+  .nav-btns {
+    .button {
+      padding: 10px;
+      font-weight: 700;
+      background-color: #FFDF8E;
+    }
+  }
+}
+
 
 .right-off-canvas-menu {
   // display: flex;
@@ -244,8 +265,16 @@ ul.off-canvas-list li a {
 
 @media only screen and (max-width: 40em) {
   ul.off-canvas-list li a {
-    font-size: 26px;
+    font-size: 17px;
     font-weight: 700;
     line-height: 56px;
+    padding: 0 0 0 15px;
   }
 }
+
+.title-wrapper {
+  position: relative;
+  background-color: #fff;
+  bottom: 60px;
+}
+

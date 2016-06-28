@@ -143,6 +143,17 @@ function rest_prepare_thumbnail( $data, $post, $request ) {
 }
 add_filter( 'rest_prepare_post', 'rest_prepare_thumbnail', 10, 3 );
 
+// Post hero image
+function hero_thumbnail( $data, $post, $request ) {
+	$_data = $data->data;
+	$thumbnail_id = get_post_thumbnail_id( $post->ID );
+	$thumbnail = wp_get_attachment_image_url( $thumbnail_id, 'full' );
+	$_data['hero_img_url'] = $thumbnail;
+	$data->data = $_data;
+	return $data;
+}
+add_filter( 'rest_prepare_post', 'hero_thumbnail', 10, 3 );
+
 
 // Category Data
 function rest_prepare_cat( $data, $post, $request ) {
@@ -169,6 +180,12 @@ function new_excerpt_length($length) {
 	return 17;
 }
 add_filter('excerpt_length', 'new_excerpt_length');
+
+// Excerpt length
+function wpdocs_excerpt_more( $more ) {
+    return '';
+}
+add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
 
 // add_action("wpcf7_before_send_mail", "wpcf7_do_something_else");  

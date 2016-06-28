@@ -16,6 +16,11 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('./app/css'));
 });
 
+gulp.task('icons', function() {
+    return gulp.src('./bower_components/font-awesome/fonts/**.*')
+        .pipe(gulp.dest('./app/fonts'));
+});
+
 gulp.task('LiveReload', function() {
     gulp.src('./app/**/*')
         .pipe(connect.reload());
@@ -26,4 +31,4 @@ gulp.task('watch', function() {
     gulp.watch(['./app/**/*'], ['LiveReload']);
 });
 
-gulp.task('default', ['connect', 'watch', 'sass']);
+gulp.task('default', ['connect', 'watch', 'sass', 'icons']);

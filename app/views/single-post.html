@@ -1,12 +1,37 @@
-<div class="row">
-    <!--<div class="medium-12 columns">-->
-    <!--    <a class="button" back>Back</a>-->
-    <!--</div>-->
-    <div class="medium-12 columns">
-        <h1>{{post.title.rendered}}</h1>
-        <div ng-bind-html="post.content.rendered | to_trusted"></div>
+<div class="single-post-wrapper">
+    <div class="row full-width">
+        <img src="{{ post.hero_img_url }}" alt="">
     </div>
+    <div class="row">
+        <div class="medium-6 columns title-wrapper">
+            <h1>{{post.title.rendered}}</h1>
+        </div>
+    </div>
+    
 
-    <a ui-sref="single-post({id: post.siblings.prev})" ng-show="post.siblings.prev != null" class="button">Previous post</a>
-    <a ui-sref="single-post({id: post.siblings.next})" ng-show="post.siblings.next != null" class="button">Next post</a>
+
+        <div class="row">
+            <div class="medium-12 columns">
+                <div ng-bind-html="post.content.rendered | to_trusted"></div>
+            </div>
+        </div>
+
+        <div class="row">
+        <div class="medium-12 columns">
+       
+            <h3>En del af kategorierne</h3>
+            <ul class="tabs">
+                <li ng-repeat="category in post.cat_info" class="tabs-title fade">
+                    <img class="cat_icon" src="{{ category.category_icon }}" alt="">
+                    <a ui-sref="category.list({category: category.category_id})">{{ category.category_name }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row nav-btns">
+        <div class="medium-12 columns">
+            <a ui-sref="single-post({id: post.siblings.prev})" ng-show="post.siblings.prev != null" class="button left"><i class="fa fa-chevron-left"></i> FORRIGE</a>
+            <a ui-sref="single-post({id: post.siblings.next})" ng-show="post.siblings.next != null" class="button right">NÆSTE <i class="fa fa-chevron-right"></i></a>
+        </div>
+    </div>
 </div>
