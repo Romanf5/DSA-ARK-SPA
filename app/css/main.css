@@ -6496,10 +6496,24 @@ h5 {
         .tabs .tabs-title img {
           max-width: 70%; } }
 
+@media only screen and (max-width: 40em) {
+  .single-post-wrapper .tabs .tabs-title {
+    margin: 0;
+    max-width: 80px;
+    width: initial; } }
+
 .single-post-wrapper .tabs {
   text-align: initial; }
-  .single-post-wrapper .tabs .tabs-title:first-child {
-    margin-left: 0; }
+  .single-post-wrapper .tabs .tabs-title {
+    margin-left: 10px; }
+    .single-post-wrapper .tabs .tabs-title:first-child {
+      margin-left: 0; }
+  @media only screen and (max-width: 425px) {
+    .single-post-wrapper .tabs {
+      display: flex;
+      justify-content: space-between; }
+      .single-post-wrapper .tabs .tabs-title img {
+        max-width: 100%; } }
 
 .single-post-wrapper .row {
   margin-bottom: 30px; }
@@ -6508,6 +6522,12 @@ h5 {
   padding: 10px;
   font-weight: 700;
   background-color: #FFDF8E; }
+
+@media only screen and (max-width: 40em) {
+  .tabs .tabs-title {
+    margin: 0;
+    max-width: 80px;
+    width: initial; } }
 
 .off-canvas-list {
   margin-top: 50px !important; }

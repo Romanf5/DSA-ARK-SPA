@@ -261,13 +261,35 @@ h5 {
   }
 }
 
-.single-post-wrapper { 
+.single-post-wrapper {
+  @media only screen and (max-width: 40em) {
+  .tabs .tabs-title {
+      margin: 0;
+      max-width: 80px;
+      width: initial;
+  }
+}
   .tabs { 
     text-align: initial; 
-    .tabs-title:first-child {
-      margin-left: 0;
+    .tabs-title {
+      &:first-child {
+        margin-left: 0;
+      }
+      margin-left: 10px;
+    }
+    
+    @media only screen and (max-width: 425px) {
+      display: flex;
+      justify-content: space-between;
+      .tabs-title {
+        //display: table-cell;
+        img {
+          max-width: 100%;
+        }
+      }
     }
   }
+
   .row { margin-bottom: 30px; }
 
   .nav-btns {
@@ -279,6 +301,13 @@ h5 {
   }
 }
 
+@media only screen and (max-width: 40em) {
+  .tabs .tabs-title {
+      margin: 0;
+      max-width: 80px;
+      width: initial;
+  }
+}
 
 .off-canvas-list {
   margin-top: 50px!important;  

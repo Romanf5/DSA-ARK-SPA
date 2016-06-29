@@ -1,8 +1,8 @@
 
-<div class="medium-12 columns">
+<div class="medium-12 columns blog-wrapper">
 	<ul class="tabs">
 		<li ng-repeat="category in categories" class="tabs-title fade">
-			<img class="cat_icon" src="{{ category.category_icon }}" alt="">
+			<a ui-sref=".list({category: category.id})"><img class="cat_icon" src="{{ category.category_icon }}" alt=""></a>
 			<a ui-sref=".list({category: category.id})" ui-sref-active="active" ng-bind-html="category.name | to_trusted"></a>
 		</li>
 	</ul>
