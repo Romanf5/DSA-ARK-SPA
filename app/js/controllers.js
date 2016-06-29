@@ -6,49 +6,16 @@ angular.module('dsaArkTheme')
 })
 
 // Homepage controller
-.controller('HomeCtrl', ['$rootScope', '$scope', 'homeService', '$http', '$element', function($rootScope, $scope, homeService, $http, $element) {
+.controller('HomeCtrl', [ '$scope', 'homeService', '$http', function($scope, homeService, $http) {
     $scope.page_title = 'Home';
 
 
     // Retrieve category data
     homeService.getCategories().query(function(response) {
         $scope.categories = response;
-
-        //$scope.chunkedData = chunk($scope.categories, 3);
-
-        // Retrieve category image from ACF REST API
-        // for (var i = 0; i < $scope.categories.length; i++) {
-        //     $http.get(appInfo.api_acf_url + "term/categories/" + $scope.categories[i].id).success((function(i) {
-        //         return function(data) {
-        //             $scope.categories[i].category_image = data.acf.category_image; // ACF field: category_image
-        //             $scope.categories[i].category_color = data.acf.category_color;
-        //         };
-        //     })(i));
-        // }
-        //$scope.cats = $scope.categories;
     }, function(response) {
         $scope.message = "Error: " + response.status + " " + response.statusText;
     });
-
-
-    function chunk(arr, size) {
-        var newArr = [];
-        for (var i = 0; i < arr.length; i += size) {
-            newArr.push(arr.slice(i, i + size));
-        }
-        return newArr;
-    }
-
-    // $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState) {
-    //       var forward = toState.name > fromState.name;
-    //       console.log($element);
-    //       if (forward) {
-    //         $element.removeClass('backward');
-    //       } else {
-    //         $element.addClass('backward');
-    //       }
-    // });
-
 }])
 
 
@@ -60,18 +27,19 @@ angular.module('dsaArkTheme')
         $scope.categories = res;
     });
     
-    $http.get(appInfo.api_url + 'categories/' + $stateParams.category).success(function(res) {
-        $scope.currCat = res;
-        console.log($scope.currCat);
-    });
-
-
     PostsByCat.query({
         ID: $stateParams.category
     }, function(res) {
         $scope.posts = res;
         $scope.chunkedData = chunk($scope.posts, 3);
     });
+    
+    $http.get(appInfo.api_url + 'categories/' + $stateParams.category).success(function(res) {
+        $scope.currCat = res;
+    });
+
+
+
 
 
     $scope.selected = 0;
@@ -92,7 +60,6 @@ angular.module('dsaArkTheme')
 
 // Single Post controller
 .controller('SinglePostCtrl', ['$scope', 'Post', '$stateParams', function($scope, Posts, $stateParams) {
-    console.log($stateParams);
     Posts.get({
         ID: $stateParams.id
     }, function(res) {
@@ -103,7 +70,9 @@ angular.module('dsaArkTheme')
 
 .controller('ContactCtrl', ['$scope', '$stateParams', '$http', function($scope, $stateParams, $http) {
 
-$scope.result = 'hidden'
+$scope.contactImg = appInfo.template_directory + 'app/img/icons/Arkitekt-togo.png';
+
+$scope.result = 'hidden';
     $scope.resultMessage;
     $scope.formData; //formData is an object holding the name, email, subject, and message
     $scope.submitButtonDisabled = false;
@@ -136,21 +105,8 @@ $scope.result = 'hidden'
         }
     }
 
+}])
+
+.controller('AboutCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+    $scope.imgPath = appInfo.template_directory + '/app/img';
 }]);
-
-// .controller('ContactCtrl', ['$scope', '$stateParams', '$http', function($scope, $stateParams, $http) {
-
-//     $http({
-//         url: "http://formspree.io/e.domotenko@gmail.com",
-//         data: jQuery.param({
-//             email: email,
-//             message: message
-//         }),
-//         method: 'POST',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/x-www-form-urlencoded'
-//         }
-//     });
-
-// }]);

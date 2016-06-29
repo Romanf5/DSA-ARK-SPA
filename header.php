@@ -26,9 +26,9 @@
         <nav class="tab-bar">
 
           <section class="left tab-bar-section">
-            <img src="<?php echo get_template_directory_uri() ?>/app/img/icons/logo.svg" alt="" class="logo">
+            <a ui-sref="home"><img src="<?php echo get_template_directory_uri() ?>/app/img/icons/logo.png" alt="" class="logo"></a>
             <div class="logo-bar"></div>
-            <p>Arkitektløsninger til fredede bygninger,<br>
+            <p class="show-for-medium-up">Arkitektløsninger til fredede bygninger,<br>
             boliger og erhverv</p>
           </section>
 
@@ -39,9 +39,12 @@
         </nav>
 
         <aside class="right-off-canvas-menu">
+          <a class="times exit-off-canvas">
+            &times;
+          </a>
           <ul class="off-canvas-list">
             <li><a href="#">Arkitect to Go</a></li>
-            <li><a href="#">Om DSA</a></li>
+            <li><a ui-sref="about">Om DSA</a></li>
             <li><a href="#">Samarbejestpartnere</a></li>
             <li><a ui-sref="contact">Kontakt</a></li>
           </ul>

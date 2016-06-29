@@ -40,6 +40,11 @@ angular.module('dsaArkTheme', ['ui.router', 'ngResource', 'ngAnimate', 'mm.found
 			url: '/contact',
 			controller: 'ContactCtrl',
 			templateUrl: appInfo.template_directory + 'app/views/contactus.html'
+		})
+		.state('about', {
+			url: '/about',
+			controller: 'AboutCtrl',
+			templateUrl: appInfo.template_directory + 'app/views/aboutus.html'
 		});
 		
 		

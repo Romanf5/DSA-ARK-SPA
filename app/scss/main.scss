@@ -8,10 +8,6 @@
   max-width: 100%;
 }
 
-// .active {
-//     font-weight: 700;
-//     color: red !important;
-// }
 
 .img-wrapper {
     width: 100%;
@@ -40,15 +36,20 @@
       position: absolute;
       height: 40px;
       width: 80%;
-      padding: 15px 30px;
       bottom: 12%;
       opacity: 0.8;
     }
     h5 {
       position: absolute;
-      bottom: 15%;
+      bottom: 16%;
       left: 8%;
       color: #fff;
+      @media only screen and (min-width: 40.0625em) and (max-width: 64em) {
+        bottom: 18%;
+      }
+      @media only screen and (min-width: 90.0625em) {
+        bottom: 15%;
+      }
     }
 }
 
@@ -84,15 +85,22 @@ h5 {
   text-align: center;
 }
 
-footer {
-  background-color: $night-rider;
-}
-
 .door-icon {
   background: url(../img/icons/menu-icon.svg) no-repeat;
   background-position: center;
   & span::after {
     content: none !important;
+  }
+}
+
+.post-row {
+  min-height: 440px;
+  margin-bottom: 30px;
+  h4 {
+    min-height: 90px;
+  }
+  .excerpt {
+    min-height: 60px;
   }
 }
 
@@ -106,47 +114,64 @@ footer {
   }
 }
 
-.post-row {
-  margin-bottom: 30px;
-  h4 {
-    min-height: 90px;
+.times.exit-off-canvas {
+  font-size: 50px;
+  color: #F6CD64;
+  position: relative;
+  left: 36px;
+  top: 25px;
+  background: none;
+  box-shadow: none;
+  display: initial;
+  @media only screen and (max-width: 40em) {
+    left: 15px;
   }
-  .excerpt {
-    min-height: 60px;
+}
+
+@media only screen and (min-width: 40.0625em) {
+  .move-left .times.exit-off-canvas:hover {
+      background: none;
   }
 }
 
 
 
 
-
-$text-color: #fff;
-
-// footer CSS
-
+// footer
 .footer {
+  background-color: $night-rider;
   padding: 1rem 4rem;
-  text-align: center;
-  color: $text-color;
-  i {
-    font-size: 50px;
+  color: #fff;
+  .social {
+    i {
+      margin-top: 2.5rem;
+      font-size: 50px;
+      float: right;
+    }
+    @media only screen and (max-width: 40em) {
+      text-align: center;
+      i {
+        float: none;
+      }
+    }
   }
 }
 
 .footer {
   h4 {
-    color: $text-color;
+    color: #F6CD64;
     font-size: 1em;
     font-weight: 400;
     text-transform: uppercase;
     margin-top: 2.5rem;
     margin-bottom: 10px;
     font-weight: 70px;
+    line-height: initial;
   }
   p, a {
     font-weight: 300; 
     font-size: .8em;
-    color: $text-color;
+    color: #fff;
     margin-bottom: 0px;
   }
 }
@@ -167,7 +192,11 @@ $text-color: #fff;
 }
 
 
-
+.article {
+  @media only screen and (max-width: 40em) {
+    margin-bottom: 15px;
+  }
+}
 
 .fade {
   transition: 1s linear all;
@@ -195,13 +224,8 @@ $text-color: #fff;
 }
 
 
-// top menu
-// .right-small {
-//   right: 80px;
-// } 
-
 .logo-bar {
-    width: 25%;
+    max-width: 170px;
     height: 10px;
     margin-top: 10px;
     background-color: #F6CD64;
@@ -226,6 +250,14 @@ $text-color: #fff;
         background-color: #000;
       }
     }
+    @media only screen and (max-width: 40em) {
+      img {
+        max-width: 70%;
+      }
+      margin: 0;
+      max-width: 80px;
+      width: 20%;
+    }
   }
 }
 
@@ -248,13 +280,8 @@ $text-color: #fff;
 }
 
 
-.right-off-canvas-menu {
-  // display: flex;
-  // align-items: center;
-}
-
 .off-canvas-list {
-  margin-top: 160px!important;  
+  margin-top: 50px!important;  
 }
 
 ul.off-canvas-list li a {
@@ -265,9 +292,9 @@ ul.off-canvas-list li a {
 
 @media only screen and (max-width: 40em) {
   ul.off-canvas-list li a {
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 700;
-    line-height: 56px;
+    line-height: 40px;
     padding: 0 0 0 15px;
   }
 }
@@ -278,3 +305,64 @@ ul.off-canvas-list li a {
   bottom: 60px;
 }
 
+// Contact Us
+
+.contact-wrapper {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  .cont-icon {
+    position: relative;
+    min-height: 440px;
+  img {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+}  
+.arrow_box {
+	position: relative;
+	background: #F6CD64;
+	padding: 45px 55px;
+	form {
+	  input {
+	    @media only screen and (min-width: 40.063em) {
+	      width: 55%;
+	    }
+	  }
+	  label {
+	    color: #fff;
+	  }
+	  button {
+	    background-color: #303030;
+	    color: #F6CD64;
+	    text-transform: uppercase;
+	  }
+	}
+}
+.arrow_box:after {
+	right: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(246, 205, 100, 0);
+	border-right-color: #F6CD64;
+	border-width: 36px 72px 36px 0;
+	margin-top: -36px;
+	@media only screen and (max-width: 40em) {
+	  content: none;
+	}
+}
+}
+
+.tab-bar-section {
+  @media only screen and (max-width: 40em) {
+    padding: 60px 20px;
+  }
+}    

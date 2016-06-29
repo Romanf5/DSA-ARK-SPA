@@ -836,11 +836,11 @@ $font-family-sans-serif: "futura-pt", sans-serif;
 // $include-html-off-canvas-classes: $include-html-classes;
 
  $tabbar-bg: transparent;
- $tabbar-height: rem-calc(160);
+ $tabbar-height: rem-calc(176);
 // $tabbar-icon-width: $tabbar-height;
  $tabbar-line-height: 40px;
  $tabbar-color: #000;
- $tabbar-middle-padding: 0 rem-calc(120);
+ $tabbar-middle-padding: 30px rem-calc(60);
 
 // Off Canvas Divider Styles
  $tabbar-left-section-border: none;
