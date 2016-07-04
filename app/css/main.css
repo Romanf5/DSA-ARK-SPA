@@ -6347,6 +6347,9 @@ h1 {
 h3 {
   font-size: 46px;
   font-weight: 700; }
+  @media only screen and (max-width: 40em) {
+    h3 {
+      font-size: 36px; } }
 
 h4,
 h4 a {
