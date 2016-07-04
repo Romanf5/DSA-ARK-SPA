@@ -1,12 +1,14 @@
-<div class="row cat-descr">
-    <h3 style="color: {{currCat.category_color}}">{{currCat.name}}</h3>
-    <p>{{currCat.description}}</p>
+<div class="row cat-descr fade">
+    <div class="ct-dsc">
+        <h3 style="color: {{currCat.category_color}}">{{currCat.name}}</h3>
+        <p>{{currCat.description}}</p>
+    </div>
 </div>
 <div class="row full-width fade post-row" ng-repeat="rows in chunkedData">
     <div class="fade" ng-repeat="post in rows">
         <article class="medium-4 columns fade article">
             <div class="post-wrapper">
-                <img class="fade" src="{{ post.featured_image_thumbnail_url }}" />
+                <a ui-sref="single-post({id: post.id})"><img class="fade" src="{{ post.featured_image_thumbnail_url }}" /></a>
                 <div class="cat-col">
                     <a class="fade" ng-repeat="postCatLink in post.cat_info" ui-sref="category.list({category: postCatLink.category_id})">
                         <div style="display: inline-block; width: 30px; height: 30px; background-color: {{ postCatLink.category_color }}"></div>

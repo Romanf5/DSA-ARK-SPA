@@ -14,27 +14,89 @@ angular.module('dsaArkTheme', ['ui.router', 'ngResource', 'ngAnimate', 'mm.found
 		.state('home', {
 			url: '/',
 			controller: 'HomeCtrl',
-			templateUrl: appInfo.template_directory + 'app/views/home.html'
-		})
-		.state('blog', {
-			url: '/posts?:categories',
-			controller: 'BlogCtrl',
-			templateUrl: appInfo.template_directory + 'app/views/blog.html'
+			templateUrl: appInfo.template_directory + 'app/views/home.html',
+			resolve: {
+				homeObj: function(homeService, $q) {
+					var deferred = $q.defer();
+					homeService.getCategories().query(function(response) {
+						deferred.resolve(response);
+					}, function(response) {
+						deferred.reject();
+					});
+					return deferred.promise;
+				}
+			}
 		})
 		.state('single-post', {
 			url: '/posts/:id',
 			controller: 'SinglePostCtrl',
-			templateUrl: appInfo.template_directory + 'app/views/single-post.html'
+			templateUrl: appInfo.template_directory + 'app/views/single-post.html',
+			resolve: {
+				singlePostObj: function(Post, $q, $stateParams) {
+					var deferred = $q.defer();
+					Post.get({
+						ID: $stateParams.id
+					}, function(res) {
+						deferred.resolve(res);
+					}, function(response) {
+						deferred.reject();
+					});
+					return deferred.promise;
+				}
+			}
 		})
 		.state('category', {
 			url: '/categories',
 			controller: 'BlogCtrl',
-			templateUrl: appInfo.template_directory + 'app/views/blog.html'
+			templateUrl: appInfo.template_directory + 'app/views/blog.html',
+			resolve: {
+				catObj: function($http) {
+					return $http({
+							method: 'GET',
+							url: appInfo.api_url + 'categories'
+						})
+						.then(function(data) {
+							return data;
+						});
+				},
+				postObj: function(PostsByCat, $q, $stateParams) {
+					var deferred = $q.defer();
+					PostsByCat.query({
+						ID: $stateParams.category
+					}, function(res) {
+						deferred.resolve(res);
+					}, function(response) {
+						deferred.reject();
+					});
+					return deferred.promise;
+				},
+				currCatObj: function($http, $stateParams) {
+					return '';
+				}
+			}
 		})
 		.state('category.list', {
 			url: '/:category',
 			controller: 'BlogCtrl',
-			templateUrl: appInfo.template_directory + 'app/views/case-filter.html'
+			templateUrl: appInfo.template_directory + 'app/views/case-filter.html',
+			resolve: {
+				postObj: function(PostsByCat, $q, $stateParams) {
+					var deferred = $q.defer();
+					PostsByCat.query({
+						ID: $stateParams.category
+					}, function(res) {
+						deferred.resolve(res);
+					}, function(response) {
+						deferred.reject();
+					});
+					return deferred.promise;
+				},
+				currCatObj: function($http, $stateParams) {
+					return $http.get(appInfo.api_url + 'categories/' + $stateParams.category).success(function(res) {
+						return res;
+					});
+				}
+			}
 		})
 		.state('contact', {
 			url: '/contact',
@@ -46,9 +108,9 @@ angular.module('dsaArkTheme', ['ui.router', 'ngResource', 'ngAnimate', 'mm.found
 			controller: 'AboutCtrl',
 			templateUrl: appInfo.template_directory + 'app/views/aboutus.html'
 		});
-		
-		
-		// use the HTML5 History API
-        $locationProvider.html5Mode(true);
-		
+
+
+	// use the HTML5 History API
+	$locationProvider.html5Mode(true);
+
 });

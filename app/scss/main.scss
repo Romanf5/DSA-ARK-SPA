@@ -37,13 +37,14 @@
       height: 40px;
       width: 80%;
       bottom: 12%;
-      opacity: 0.8;
+      opacity: 0.9;
     }
     h5 {
       position: absolute;
       bottom: 16%;
       left: 8%;
       color: #fff;
+      text-transform: uppercase;
       @media only screen and (min-width: 40.0625em) and (max-width: 64em) {
         bottom: 18%;
       }
@@ -83,6 +84,12 @@ h5 {
 
 .cat-descr {
   text-align: center;
+
+}
+
+.ct-dsc {
+  padding-top: 160px;
+  padding-bottom: 80px;  
 }
 
 .door-icon {
@@ -118,7 +125,7 @@ h5 {
   font-size: 50px;
   color: #F6CD64;
   position: relative;
-  left: 36px;
+  left: rem-calc(24);
   top: 25px;
   background: none;
   box-shadow: none;
@@ -157,7 +164,18 @@ h5 {
   }
 }
 
+.container {
+  padding-bottom: 272px;
+  @media only screen and (max-width: 40em) {
+    padding-bottom: 320px;
+  }
+}
+
 .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   h4 {
     color: #F6CD64;
     font-size: 1em;
@@ -225,10 +243,14 @@ h5 {
 
 
 .logo-bar {
-    max-width: 170px;
+    max-width: 240px;
     height: 10px;
     margin-top: 10px;
     background-color: #F6CD64;
+}
+
+#loading-bar .bar  {
+  background: #F6CD64 !important;
 }
 
 .tabs {
@@ -248,6 +270,13 @@ h5 {
       &.active {
         color: transparent;
         background-color: #000;
+          @media only screen and (max-width: 40em) {
+
+        width: 70%;
+        //max-width: 80px;
+        display: inline-block;
+        margin-top: 0px;
+    }
       }
     }
     @media only screen and (max-width: 40em) {
@@ -262,6 +291,7 @@ h5 {
 }
 
 .single-post-wrapper {
+
   @media only screen and (max-width: 40em) {
   .tabs .tabs-title {
       margin: 0;
@@ -269,6 +299,7 @@ h5 {
       width: initial;
   }
 }
+
   .tabs { 
     text-align: initial; 
     .tabs-title {
@@ -299,22 +330,17 @@ h5 {
       background-color: #FFDF8E;
     }
   }
+  
 }
 
-@media only screen and (max-width: 40em) {
-  .tabs .tabs-title {
-      margin: 0;
-      max-width: 80px;
-      width: initial;
-  }
-}
+
 
 .off-canvas-list {
   margin-top: 50px!important;  
 }
 
 ul.off-canvas-list li a {
-  font-size: 40px;
+  font-size: 28px;
   font-weight: 700;
   line-height: 56px;
 }
@@ -394,4 +420,4 @@ ul.off-canvas-list li a {
   @media only screen and (max-width: 40em) {
     padding: 60px 20px;
   }
-}    
+}

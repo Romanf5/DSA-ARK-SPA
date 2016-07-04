@@ -1,4 +1,4 @@
-<div class="single-post-wrapper">
+<div class="single-post-wrapper fade">
     <div class="row full-width">
         <img src="{{ post.hero_img_url }}" alt="">
     </div>
@@ -8,8 +8,6 @@
         </div>
     </div>
     
-
-
         <div class="row">
             <div class="medium-12 columns">
                 <div ng-bind-html="post.content.rendered | to_trusted"></div>

@@ -19,7 +19,6 @@
 
 
 <body <?php body_class(); ?>>
-  <div id="loading-bar-container"></div>
   <div ng-controller="OffCanvasCtrl">
     <div class="off-canvas-wrap" data-offcanvas>
       <div class="inner-wrap">

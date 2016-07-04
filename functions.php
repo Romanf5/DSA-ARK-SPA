@@ -8,17 +8,17 @@ class dsa_ark_theme {
 		wp_enqueue_style( 'main.css', get_template_directory_uri() . '/app/css/main.css', '1.0.0', 'all' );
 		
 		// AngularJS
-		wp_enqueue_script( 'angular', get_template_directory_uri() . '/bower_components/angular/angular.min.js', array( 'jquery' ), '1.5.7', false );
-		wp_enqueue_script( 'angular-resource', get_template_directory_uri() . '/bower_components/angular-resource/angular-resource.min.js', array('angular'), '1.5.7', false );
-		wp_enqueue_script( 'angular-animate', get_template_directory_uri() . '/bower_components/angular-animate/angular-animate.min.js', array('angular'), '1.5.7', false );
-		wp_enqueue_script( 'ui-router', get_template_directory_uri() . '/bower_components/angular-ui-router/release/angular-ui-router.min.js', array( 'angular' ), '0.3.1', false );
+		wp_enqueue_script( 'angular', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js', array( 'jquery' ), '1.5.7', false );
+		wp_enqueue_script( 'angular-resource', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-resource.min.js', array('angular'), '1.5.7', false );
+		wp_enqueue_script( 'angular-animate', 'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-animate.min.js', array('angular'), '1.5.7', false );
+		wp_enqueue_script( 'ui-router', 'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js', array( 'angular' ), '0.3.1', false );
 		
 		// Angular-Foundation
-		wp_enqueue_script( 'angular-foundation', get_template_directory_uri() . '/bower_components/angular-foundation/mm-foundation-tpls.min.js', array( 'angular' ), '0.3.1', false );
+		wp_enqueue_script( 'angular-foundation', 'https://cdnjs.cloudflare.com/ajax/libs/angular-foundation/0.8.0/mm-foundation-tpls.min.js', array( 'angular' ), '0.8.0', false );
 		
 		// Angular Loading Bar
-		wp_enqueue_script( 'angular-loading-bar', get_template_directory_uri() . '/bower_components/angular-loading-bar/build/loading-bar.min.js', array( 'angular' ), '0.9.0', false );
-		wp_enqueue_style( 'angular-loading-bar.css', get_template_directory_uri() . '/bower_components/angular-loading-bar/build/loading-bar.min.css', '0.9.0', 'all' );
+		wp_enqueue_script( 'angular-loading-bar', 'https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.js', array( 'angular' ), '0.9.0', false );
+		wp_enqueue_style( 'angular-loading-bar.css', 'https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.css', '0.9.0', 'all' );
 		
 		// App
 		wp_enqueue_script( 'ngApp', get_template_directory_uri() . '/app/js/app.js', array( 'ui-router' ), '1.0', false );
@@ -187,48 +187,4 @@ function wpdocs_excerpt_more( $more ) {
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
-
-// add_action("wpcf7_before_send_mail", "wpcf7_do_something_else");  
-// function wpcf7_do_something_else($cf7) {
-//     // get the contact form object
-//     $wpcf = WPCF7_ContactForm::get_current();
-
-//     // if you wanna check the ID of the Form $wpcf->id
-
-//     // if (/*Perform check here*/) {
-//     //     // If you want to skip mailing the data, you can do it...  
-//     //     $wpcf->skip_mail = true;    
-//     // }
-//     echo '<pre>';
-//     var_dump($wpcf);
-//     echo '</pre>';
-
-//     return $wpcf;
-// }	
-	
-// // define the wpcf7_contact_form callback 
-// function action_wpcf7_contact_form( $instance ) { 
-//     var_dump( $instance); 
-// }; 
-         
-// // add the action 
-// add_action( 'wpcf7_contact_form', 'action_wpcf7_contact_form', 10, 1 ); 
-
-
-// add_action('wpcf7_before_send_mail', 'my_wpcf7_choose_recipient');    
-// function my_wpcf7_choose_recipient($WPCF7_ContactForm)
-// {
-//     // use $submission to access POST data
-//     $submission = WPCF7_Submission::get_instance();
-//     $data = $submission->get_posted_data();
-//     $subject = $data['subject']
-
-//     // use WPCF7_ContactForm->prop() to access form settings
-//     $mail = $WPCF7_ContactForm->prop('mail');
-//     $recipient = $mail['recipient'];
-
-//     // update a form property
-//     $WPCF7_ContactForm->set_properties(array('mail' => $mail));
-// }
-	
 ?>
