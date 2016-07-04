@@ -188,4 +188,98 @@ function wpdocs_excerpt_more( $more ) {
 }
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
+// ACF
+
+// 1. customize ACF path
+add_filter('acf/settings/path', 'my_acf_settings_path');
+ 
+function my_acf_settings_path( $path ) {
+ 
+    // update path
+    $path = get_stylesheet_directory() . '/plugins/advanced-custom-fields/';
+    
+    // return
+    return $path;
+    
+}
+ 
+
+// 2. customize ACF dir
+add_filter('acf/settings/dir', 'my_acf_settings_dir');
+ 
+function my_acf_settings_dir( $dir ) {
+ 
+    // update path
+    $dir = get_stylesheet_directory_uri() . '/plugins/advanced-custom-fields/';
+    
+    // return
+    return $dir;
+    
+}
+ 
+
+// 3. Hide ACF field group menu item
+add_filter('acf/settings/show_admin', '__return_false');
+
+
+// 4. Include ACF
+include_once( get_stylesheet_directory() . '/plugins/advanced-custom-fields/acf.php' );
+
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_category-meta',
+		'title' => 'Category Meta',
+		'fields' => array (
+			array (
+				'key' => 'field_575ffcfa1a8dd',
+				'label' => 'Category Image',
+				'name' => 'category_image',
+				'type' => 'image',
+				'instructions' => 'Category featured image',
+				'save_format' => 'id',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_576bae338fb1a',
+				'label' => 'Category Icon',
+				'name' => 'category_icon',
+				'type' => 'image',
+				'save_format' => 'url',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_576bae758fb1b',
+				'label' => 'Category Color',
+				'name' => 'category_color',
+				'type' => 'color_picker',
+				'default_value' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'ef_taxonomy',
+					'operator' => '==',
+					'value' => 'category',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'acf_after_title',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
+include_once( get_stylesheet_directory() . '/plugins/rest-api/plugin.php' );
+include_once( get_stylesheet_directory() . '/plugins/svg-support/svg-support.php' );
+
 ?>
