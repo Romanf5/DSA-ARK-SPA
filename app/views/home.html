@@ -1,13 +1,13 @@
 <ul class="medium-block-grid-3">
-    <li ng-repeat="category in categories" class="fade">
-        <a ui-sref="category.list({category: category.id})" class="img-wrapper cat-wrapper">
-            <img src="{{ category.category_image }}" class="fade" />
+    <li ng-repeat="category in categories | orderBy" class="fade">
+        <a ui-sref="category.list({category_name: category.slug})" class="img-wrapper cat-wrapper">
+            <img ng-src="{{ category.category_image }}" class="fade" />
             <div class="cat-label" style="background-color: {{ category.category_color }}"></div>
             <h5>{{category.name}}<h5>
         </a>
     </li>
     <li>
-        <a ui-sref="contact" class="img-wrapper">
+        <a ui-sref="about" class="img-wrapper">
             <img src="/wp-content/uploads/2016/06/dsa-house-icon@2x-700x550.png">
             <div ng-bind-html="post.description | to_trusted"></div>
             <h5>DSA ARK<h5>

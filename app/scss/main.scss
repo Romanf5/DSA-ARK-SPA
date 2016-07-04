@@ -88,8 +88,10 @@ h5 {
 }
 
 .ct-dsc {
-  padding-top: 160px;
-  padding-bottom: 80px;  
+  @media only screen and (min-width: 40.0625em) {
+    padding-top: 160px;
+    padding-bottom: 80px;  
+  }
 }
 
 .door-icon {
@@ -267,16 +269,18 @@ h5 {
       color: #000;
       line-height: 8px;
       margin-top: 5px;
+       @media only screen and (max-width: 40em) {
+         display: inline-block;
+         font-size: 12px;
+       }
       &.active {
         color: transparent;
         background-color: #000;
-          @media only screen and (max-width: 40em) {
-
+        @media only screen and (max-width: 40em) {
         width: 70%;
-        //max-width: 80px;
         display: inline-block;
         margin-top: 0px;
-    }
+        }
       }
     }
     @media only screen and (max-width: 40em) {
@@ -307,6 +311,12 @@ h5 {
         margin-left: 0;
       }
       margin-left: 10px;
+      a {
+        @media only screen and (max-width: 40em) {
+         display: block;
+         font-size: 13px;
+        }
+      }
     }
     
     @media only screen and (max-width: 425px) {

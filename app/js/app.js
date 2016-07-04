@@ -27,26 +27,8 @@ angular.module('dsaArkTheme', ['ui.router', 'ngResource', 'ngAnimate', 'mm.found
 				}
 			}
 		})
-		.state('single-post', {
-			url: '/posts/:id',
-			controller: 'SinglePostCtrl',
-			templateUrl: appInfo.template_directory + 'app/views/single-post.html',
-			resolve: {
-				singlePostObj: function(Post, $q, $stateParams) {
-					var deferred = $q.defer();
-					Post.get({
-						ID: $stateParams.id
-					}, function(res) {
-						deferred.resolve(res);
-					}, function(response) {
-						deferred.reject();
-					});
-					return deferred.promise;
-				}
-			}
-		})
 		.state('category', {
-			url: '/categories',
+			url: '/kategori',
 			controller: 'BlogCtrl',
 			templateUrl: appInfo.template_directory + 'app/views/blog.html',
 			resolve: {
@@ -62,7 +44,7 @@ angular.module('dsaArkTheme', ['ui.router', 'ngResource', 'ngAnimate', 'mm.found
 				postObj: function(PostsByCat, $q, $stateParams) {
 					var deferred = $q.defer();
 					PostsByCat.query({
-						ID: $stateParams.category
+						ID: $stateParams.category_name
 					}, function(res) {
 						deferred.resolve(res);
 					}, function(response) {
@@ -71,19 +53,21 @@ angular.module('dsaArkTheme', ['ui.router', 'ngResource', 'ngAnimate', 'mm.found
 					return deferred.promise;
 				},
 				currCatObj: function($http, $stateParams) {
-					return '';
+					return $http.get(appInfo.api_url + 'categories?slug=' + $stateParams.category_name).success(function(res) {
+						return res;
+					});
 				}
 			}
 		})
 		.state('category.list', {
-			url: '/:category',
+			url: '/:category_name',
 			controller: 'BlogCtrl',
 			templateUrl: appInfo.template_directory + 'app/views/case-filter.html',
 			resolve: {
 				postObj: function(PostsByCat, $q, $stateParams) {
 					var deferred = $q.defer();
 					PostsByCat.query({
-						ID: $stateParams.category
+						ID: $stateParams.category_name
 					}, function(res) {
 						deferred.resolve(res);
 					}, function(response) {
@@ -92,9 +76,27 @@ angular.module('dsaArkTheme', ['ui.router', 'ngResource', 'ngAnimate', 'mm.found
 					return deferred.promise;
 				},
 				currCatObj: function($http, $stateParams) {
-					return $http.get(appInfo.api_url + 'categories/' + $stateParams.category).success(function(res) {
+					return $http.get(appInfo.api_url + 'categories?slug=' + $stateParams.category_name).success(function(res) {
 						return res;
 					});
+				}
+			}
+		})
+		.state('single-post', {
+			url: '/posts/:name',
+			controller: 'SinglePostCtrl',
+			templateUrl: appInfo.template_directory + 'app/views/single-post.html',
+			resolve: {
+				singlePostObj: function(Post, $q, $stateParams) {
+					var deferred = $q.defer();
+					Post.query({
+						ID: $stateParams.name
+					}, function(res) {
+						deferred.resolve(res[0]);
+					}, function(response) {
+						deferred.reject();
+					});
+					return deferred.promise;
 				}
 			}
 		})
@@ -107,6 +109,11 @@ angular.module('dsaArkTheme', ['ui.router', 'ngResource', 'ngAnimate', 'mm.found
 			url: '/about',
 			controller: 'AboutCtrl',
 			templateUrl: appInfo.template_directory + 'app/views/aboutus.html'
+		})
+		.state('partners', {
+			url: '/partners',
+			controller: 'PartnersCtrl',
+			templateUrl: appInfo.template_directory + 'app/views/partners.html'
 		});
 
 

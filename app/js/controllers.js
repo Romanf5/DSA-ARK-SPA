@@ -18,8 +18,11 @@ angular.module('dsaArkTheme')
 
     $scope.posts = postObj;
     $scope.chunkedData = chunk($scope.posts, 3);
-
+    
+    
+    
     $scope.currCat = currCatObj.data;
+    $scope.currCat = $scope.currCat[0];
 
     $scope.selected = 0;
     $scope.select = function(index) {

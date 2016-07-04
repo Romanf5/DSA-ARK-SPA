@@ -42,9 +42,9 @@
             &times;
           </a>
           <ul class="off-canvas-list">
-            <li><a href="#">Arkitect to Go</a></li>
+            <li><a ui-sref="contact">Arkitect to Go</a></li>
             <li><a ui-sref="about">Om DSA</a></li>
-            <li><a href="#">Samarbejestpartnere</a></li>
+            <li><a ui-sref="partners">Samarbejestpartnere</a></li>
             <li><a ui-sref="contact">Kontakt</a></li>
           </ul>
         </aside>

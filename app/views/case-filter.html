@@ -1,5 +1,5 @@
 <div class="row cat-descr fade">
-    <div class="ct-dsc">
+    <div class="medium-12 columns ct-dsc">
         <h3 style="color: {{currCat.category_color}}">{{currCat.name}}</h3>
         <p>{{currCat.description}}</p>
     </div>
@@ -8,16 +8,16 @@
     <div class="fade" ng-repeat="post in rows">
         <article class="medium-4 columns fade article">
             <div class="post-wrapper">
-                <a ui-sref="single-post({id: post.id})"><img class="fade" src="{{ post.featured_image_thumbnail_url }}" /></a>
+                <a ui-sref="single-post({name: post.slug})"><img class="fade" ng-src="{{ post.featured_image_thumbnail_url }}" /></a>
                 <div class="cat-col">
-                    <a class="fade" ng-repeat="postCatLink in post.cat_info" ui-sref="category.list({category: postCatLink.category_id})">
+                    <a class="fade" ng-repeat="postCatLink in post.cat_info" ui-sref="category.list({category_name: postCatLink.category_slug})">
                         <div style="display: inline-block; width: 30px; height: 30px; background-color: {{ postCatLink.category_color }}"></div>
                     </a>
                 </div>
             </div>
-            <h4 class="fade"><a ui-sref="single-post({id: post.id})">{{post.title.rendered}}</a></h4>
+            <h4 class="fade"><a ui-sref="single-post({name: post.slug})">{{post.title.rendered}}</a></h4>
             <div class="fade excerpt" ng-bind-html="post.excerpt.rendered | to_trusted"></div>
-            <a class="fade" class="button" ui-sref="single-post({id: post.id})" style="border-bottom: 3px solid {{currCat.category_color}}">LÆS MERE</a>
+            <a class="fade" class="button" ui-sref="single-post({name: post.slug})" style="border-bottom: 3px solid {{currCat.category_color}}">LÆS MERE</a>
         </article>
     </div>
 </div>

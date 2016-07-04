@@ -164,6 +164,7 @@ function rest_prepare_cat( $data, $post, $request ) {
 		$cat_arr[] = array(
 			'category_id' => $c->term_id,
 			'category_name' => $c->name,
+			'category_slug' => $c->slug,
 			'category_color' => get_field('category_color', 'category_' . $c->term_id ),
 			'category_icon' => get_field('category_icon', 'category_' . $c->term_id ),
 			);

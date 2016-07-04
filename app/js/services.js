@@ -90,19 +90,14 @@ angular.module('dsaArkTheme')
 })
 
 .factory('PostsByCat', function($resource) {
-    return $resource(appInfo.api_url + 'posts?filter[cat]=:ID', {
+    return $resource(appInfo.api_url + 'posts?filter[category_name]=:ID', {
         ID: '@id'
     });
 })
 
-// .factory('CatInfo', function($resource) {
-//     return $resource(appInfo.api_url + 'posts?filter[cat]=:ID', {
-//         ID: '@id'
-//     });
-// })
 
 .factory('Post', function($resource) {
-    return $resource(appInfo.api_url + 'posts/:ID', {
+    return $resource(appInfo.api_url + 'posts?slug=:ID', {
         ID: '@id'
     });
 })

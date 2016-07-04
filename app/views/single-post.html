@@ -20,8 +20,8 @@
             <h3>En del af kategorierne</h3>
             <ul class="tabs">
                 <li ng-repeat="category in post.cat_info" class="tabs-title fade">
-                    <a ui-sref="category.list({category: category.category_id})"><img class="cat_icon" src="{{ category.category_icon }}" alt=""></a>
-                    <a ui-sref="category.list({category: category.category_id})">{{ category.category_name }}</a>
+                    <a ui-sref="category.list({category_name: category.category_slug})"><img class="cat_icon" ng-src="{{ category.category_icon }}" alt=""></a>
+                    <a ui-sref="category.list({category_name: category.category_slug})">{{ category.category_name }}</a>
                 </li>
             </ul>
         </div>

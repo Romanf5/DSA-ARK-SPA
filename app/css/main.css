@@ -6364,9 +6364,10 @@ h5 {
 .cat-descr {
   text-align: center; }
 
-.ct-dsc {
-  padding-top: 160px;
-  padding-bottom: 80px; }
+@media only screen and (min-width: 40.0625em) {
+  .ct-dsc {
+    padding-top: 160px;
+    padding-bottom: 80px; } }
 
 .door-icon {
   background: url(../img/icons/menu-icon.svg) no-repeat;
@@ -6503,6 +6504,10 @@ h5 {
       color: #000;
       line-height: 8px;
       margin-top: 5px; }
+      @media only screen and (max-width: 40em) {
+        .tabs .tabs-title a {
+          display: inline-block;
+          font-size: 12px; } }
       .tabs .tabs-title a.active {
         color: transparent;
         background-color: #000; }
@@ -6531,6 +6536,10 @@ h5 {
     margin-left: 10px; }
     .single-post-wrapper .tabs .tabs-title:first-child {
       margin-left: 0; }
+    @media only screen and (max-width: 40em) {
+      .single-post-wrapper .tabs .tabs-title a {
+        display: block;
+        font-size: 13px; } }
   @media only screen and (max-width: 425px) {
     .single-post-wrapper .tabs {
       display: flex;
