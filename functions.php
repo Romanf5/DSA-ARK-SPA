@@ -77,9 +77,9 @@ function slug_get_siglings( $object, $field_name, $request ) {
 	$prev_post = get_adjacent_post( false, '', true );
 	return array(
 		'next'            => $next_post->ID,
-		'next_post_title' => $next_post->post_title,
+		'next_post_title' => $next_post->post_name,
 		'prev'            => $prev_post->ID,
-		'prev_post_title' => $prev_post->post_title,
+		'prev_post_title' => $prev_post->post_name,
 	);
 }
 

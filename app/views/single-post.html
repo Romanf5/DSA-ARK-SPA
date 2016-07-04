@@ -28,8 +28,8 @@
     </div>
     <div class="row nav-btns">
         <div class="medium-12 columns">
-            <a ui-sref="single-post({id: post.siblings.prev})" ng-show="post.siblings.prev != null" class="button left"><i class="fa fa-chevron-left"></i> FORRIGE</a>
-            <a ui-sref="single-post({id: post.siblings.next})" ng-show="post.siblings.next != null" class="button right">NÆSTE <i class="fa fa-chevron-right"></i></a>
+            <a ui-sref="single-post({name: post.siblings.prev_post_title})" ng-show="post.siblings.prev_post_title != null" class="button left"><i class="fa fa-chevron-left"></i> FORRIGE</a>
+            <a ui-sref="single-post({name: post.siblings.next_post_title})" ng-show="post.siblings.next_post_title != null" class="button right">NÆSTE <i class="fa fa-chevron-right"></i></a>
         </div>
     </div>
 </div>
