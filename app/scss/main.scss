@@ -22,15 +22,22 @@
         -o-filter: grayscale(100%);
         -o-transition: .5s ease-in-out;
         
-        &:hover {
+
+      }
+      &:hover {
+        img {
          -webkit-filter: grayscale(0%);
         -webkit-transition: .5s ease-in-out;
         -moz-filter: grayscale(0%); 
         -moz-transition: .5s ease-in-out;
         -o-filter: grayscale(0%); 
-        -o-transition: .5s ease-in-out;
+        -o-transition: .5s ease-in-out; 
         }
-      }
+        .cat-label {
+            background-color: transparent !important;
+            transition: .5s ease-in-out;
+          }
+        }
     }
     .cat-label {
       position: absolute;
@@ -38,6 +45,7 @@
       width: 80%;
       bottom: 12%;
       opacity: 0.9;
+      transition: .5s ease-in-out;
     }
     h5 {
       position: absolute;
@@ -92,8 +100,8 @@ h5 {
 
 .ct-dsc {
   @media only screen and (min-width: 40.0625em) {
-    padding-top: 160px;
-    padding-bottom: 80px;  
+    padding-top: 20px;
+    padding-bottom: 40px;  
   }
 }
 
@@ -259,6 +267,7 @@ h5 {
 }
 
 .tabs {
+    margin-top: 40px;
     list-style-type: none;
     padding: 0;
     text-align: center;

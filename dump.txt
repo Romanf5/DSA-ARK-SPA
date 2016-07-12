@@ -1,0 +1,16 @@
+Array
+(
+    [inputName] => test
+    [inputEmail] => imjukka@gmailcom
+    [inputSubject] => test
+    [inputMessage] => test
+)
+
+Array
+(
+    [inputSubject] => Madcd
+    [inputName] => kmomoom
+    [inputMessage] => MKmkmkmdcwdc
+    [inputEmail] => dscsdv@kmkm
+)
+
