@@ -5,17 +5,13 @@
             <div class="row full-width">
               <div class="small-6 medium-2 large-2 columns">
                 <h4>DSA ARK STUDIO</h4>
-                <p>Eric Guerrero</p>
-                <p>221 Beier Trail Apt. 159</p>
-                <p>Guadeloupe</p>
-              </div>
-              <div class="small-6 medium-2 large-2 columns">
-                <h4>Kontakt</h4>
-                <p>v/ Nils Jeppe Hansen
+                  <p>v/ Nils Jeppe Hansen
                     Wildersgade 51, 2 sal
                     1408 København K
                     Denmark
                 </p>
+                <p>dsa@dsa-ark.dk</p>
+                <p>(+45) 33 15 08 11</p>
               </div>
               <div class="small-12 medium-5 large-5 columns">
               </div>
