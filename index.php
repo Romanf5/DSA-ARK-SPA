@@ -1,6 +1,6 @@
 <?php get_header(); ?>
         
-    	<div ui-view>
+    	<div ui-view autoscroll="true">
     	      <div id="loading-bar-container"></div>
     	</div>
 

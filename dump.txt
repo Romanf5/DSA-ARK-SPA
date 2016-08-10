@@ -14,3 +14,11 @@ Array
     [inputEmail] => dscsdv@kmkm
 )
 
+Array
+(
+    [inputName] => Hans
+    [inputEmail] => hanslandgreen@gmail.com
+    [inputSubject] => teset
+    [inputMessage] => test
+)
+

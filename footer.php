@@ -3,7 +3,7 @@
           <!-- Footer -->
           <footer class="footer">
             <div class="row full-width">
-              <div class="small-6 medium-2 large-2 columns">
+              <div class="small-6 medium-3 large-2 columns">
                 <h4>DSA ARK STUDIO</h4>
                   <p>v/ Nils Jeppe Hansen
                     Wildersgade 51, 2 sal

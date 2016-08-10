@@ -3344,7 +3344,7 @@ ul.off-canvas-list {
 
 .move-right .exit-off-canvas {
   -webkit-backface-visibility: hidden;
-  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   cursor: pointer;
   transition: background 300ms ease;
   -webkit-tap-highlight-color: transparent;
@@ -3369,7 +3369,7 @@ ul.off-canvas-list {
 
 .move-left .exit-off-canvas {
   -webkit-backface-visibility: hidden;
-  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   cursor: pointer;
   transition: background 300ms ease;
   -webkit-tap-highlight-color: transparent;
@@ -3394,7 +3394,7 @@ ul.off-canvas-list {
 
 .move-top .exit-off-canvas {
   -webkit-backface-visibility: hidden;
-  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   cursor: pointer;
   transition: background 300ms ease;
   -webkit-tap-highlight-color: transparent;
@@ -3419,7 +3419,7 @@ ul.off-canvas-list {
 
 .move-bottom .exit-off-canvas {
   -webkit-backface-visibility: hidden;
-  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   cursor: pointer;
   transition: background 300ms ease;
   -webkit-tap-highlight-color: transparent;
@@ -3446,7 +3446,7 @@ ul.off-canvas-list {
 
 .offcanvas-overlap .exit-off-canvas {
   -webkit-backface-visibility: hidden;
-  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   cursor: pointer;
   transition: background 300ms ease;
   -webkit-tap-highlight-color: transparent;
@@ -3472,7 +3472,7 @@ ul.off-canvas-list {
 
 .offcanvas-overlap-left .exit-off-canvas {
   -webkit-backface-visibility: hidden;
-  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   cursor: pointer;
   transition: background 300ms ease;
   -webkit-tap-highlight-color: transparent;
@@ -3498,7 +3498,7 @@ ul.off-canvas-list {
 
 .offcanvas-overlap-right .exit-off-canvas {
   -webkit-backface-visibility: hidden;
-  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   cursor: pointer;
   transition: background 300ms ease;
   -webkit-tap-highlight-color: transparent;
@@ -3524,7 +3524,7 @@ ul.off-canvas-list {
 
 .offcanvas-overlap-top .exit-off-canvas {
   -webkit-backface-visibility: hidden;
-  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   cursor: pointer;
   transition: background 300ms ease;
   -webkit-tap-highlight-color: transparent;
@@ -3550,7 +3550,7 @@ ul.off-canvas-list {
 
 .offcanvas-overlap-bottom .exit-off-canvas {
   -webkit-backface-visibility: hidden;
-  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.5), 4px 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   cursor: pointer;
   transition: background 300ms ease;
   -webkit-tap-highlight-color: transparent;
@@ -6314,6 +6314,7 @@ th.hide-for-touch {
     -o-filter: grayscale(100%);
     -o-transition: .5s ease-in-out; }
   .img-wrapper.cat-wrapper:hover img {
+    opacity: 0.8;
     -webkit-filter: grayscale(0%);
     -webkit-transition: .5s ease-in-out;
     -moz-filter: grayscale(0%);
@@ -6335,7 +6336,8 @@ th.hide-for-touch {
     bottom: 16%;
     left: 8%;
     color: #fff;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    letter-spacing: 1.05px; }
     @media only screen and (min-width: 40.0625em) and (max-width: 64em) {
       .img-wrapper h5 {
         bottom: 18%; } }
@@ -6344,9 +6346,12 @@ th.hide-for-touch {
         bottom: 15%; } }
 
 h1 {
-  font-size: 2.75rem;
   font-weight: 700;
-  color: #303030; }
+  color: #303030;
+  font-size: 2.75rem; }
+  @media only screen and (max-width: 40em) {
+    h1 {
+      font-size: 2.25rem; } }
 
 h3 {
   font-size: 46px;
@@ -6385,8 +6390,9 @@ h5 {
 .post-row {
   min-height: 440px;
   margin-bottom: 30px; }
-  .post-row h4 {
-    min-height: 90px; }
+  @media only screen and (min-width: 40.0625em) {
+    .post-row h4 {
+      min-height: 90px; } }
   .post-row .excerpt {
     min-height: 60px; }
 
@@ -6397,6 +6403,9 @@ h5 {
     position: absolute;
     bottom: -20px;
     left: 15px; }
+  .post-wrapper:hover img {
+    opacity: 0.8;
+    transition: opacity 0.4s ease-in; }
 
 .times.exit-off-canvas {
   font-size: 50px;
@@ -6415,9 +6424,14 @@ h5 {
   .move-left .times.exit-off-canvas:hover {
     background: none; } }
 
+.container {
+  padding-bottom: 272px; }
+  @media only screen and (max-width: 40em) {
+    .container {
+      padding-bottom: 320px; } }
+
 .footer {
   background-color: #303030;
-  padding: 1rem 4rem;
   color: #fff; }
   .footer .social i {
     margin-top: 2.5rem;
@@ -6428,12 +6442,6 @@ h5 {
       text-align: center; }
       .footer .social i {
         float: none; } }
-
-.container {
-  padding-bottom: 272px; }
-  @media only screen and (max-width: 40em) {
-    .container {
-      padding-bottom: 320px; } }
 
 .footer {
   position: absolute;
@@ -6456,8 +6464,10 @@ h5 {
     margin-bottom: 0px; }
 
 @media only screen and (min-width: 40.063em) {
-  .footer .columns:nth-child(n+2) {
-    min-height: 240px; } }
+  .footer {
+    padding: 1rem 4rem; }
+    .footer .columns:nth-child(n+2) {
+      min-height: 240px; } }
 
 .footer-links {
   list-style-type: none; }
@@ -6578,53 +6588,61 @@ ul.off-canvas-list li a {
     line-height: 40px;
     padding: 0 0 0 15px; } }
 
-.title-wrapper {
-  position: relative;
-  background-color: #fff;
-  bottom: 60px; }
+@media only screen and (min-width: 40.0625em) {
+  .title-wrapper {
+    position: relative;
+    background-color: #fff;
+    bottom: 60px; } }
 
-.contact-wrapper {
-  padding-top: 60px;
-  padding-bottom: 60px; }
-  .contact-wrapper .cont-icon {
-    position: relative;
-    min-height: 440px; }
-    .contact-wrapper .cont-icon img {
-      position: absolute;
-      margin: auto;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0; }
-  .contact-wrapper .arrow_box {
-    position: relative;
-    background: #F6CD64;
-    padding: 45px 55px; }
-    @media only screen and (min-width: 40.063em) {
-      .contact-wrapper .arrow_box form input {
-        width: 55%; } }
-    .contact-wrapper .arrow_box form label {
-      color: #fff; }
-    .contact-wrapper .arrow_box form button {
-      background-color: #303030;
-      color: #F6CD64;
-      text-transform: uppercase; }
-  .contact-wrapper .arrow_box:after {
-    right: 100%;
-    top: 50%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
+@media only screen and (min-width: 40.063em) {
+  .contact-wrapper {
+    padding-top: 60px;
+    padding-bottom: 60px; } }
+
+.contact-wrapper .cont-icon {
+  position: relative;
+  min-height: 440px; }
+  .contact-wrapper .cont-icon img {
     position: absolute;
-    pointer-events: none;
-    border-color: rgba(246, 205, 100, 0);
-    border-right-color: #F6CD64;
-    border-width: 36px 72px 36px 0;
-    margin-top: -36px; }
-    @media only screen and (max-width: 40em) {
-      .contact-wrapper .arrow_box:after {
-        content: none; } }
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0; }
+
+.contact-wrapper .arrow_box {
+  position: relative;
+  background: #F6CD64;
+  padding: 40px 15px; }
+  @media only screen and (min-width: 40.063em) {
+    .contact-wrapper .arrow_box {
+      padding: 45px 55px; } }
+  @media only screen and (min-width: 64.0625em) {
+    .contact-wrapper .arrow_box form input {
+      width: 55%; } }
+  .contact-wrapper .arrow_box form label {
+    color: #fff; }
+  .contact-wrapper .arrow_box form button {
+    background-color: #303030;
+    color: #F6CD64;
+    text-transform: uppercase; }
+
+.contact-wrapper .arrow_box:after {
+  right: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(246, 205, 100, 0);
+  border-right-color: #F6CD64;
+  border-width: 36px 72px 36px 0;
+  margin-top: -36px; }
+  @media only screen and (max-width: 40em) {
+    .contact-wrapper .arrow_box:after {
+      content: none; } }
 
 @media only screen and (max-width: 40em) {
   .tab-bar-section {
